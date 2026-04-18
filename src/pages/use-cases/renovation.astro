@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Renovation As-Builts — ArchLab AI"
+  description="Walk in with a phone, walk out with a dimensioned floor plan. AI-powered as-built documentation for renovation projects."
+  keywords="as-built documentation AI, renovation floor plan, site survey AI"
+>
+<section class="page-hero">
+    <div class="container">
+      <span class="badge">Use Case</span>
+      <h1 style="margin-top:16px;">Walk In. Photograph. Walk Out with a <span class="text-gradient">Dimensioned Floor Plan.</span></h1>
+      <p>Stop spending two days on as-built documentation. ArchLab turns site photographs into dimension-accurate floor plans in minutes, not days.</p>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <div class="container">
+      <div class="content-grid-2 reveal">
+        <div class="content-text">
+          <span class="section-label">The Problem</span>
+          <h2>As-Built Documentation Is the Most Hated Task in Architecture</h2>
+          <p>Every renovation project starts the same way: send two people to the site with tape measures and laser scanners, spend a full day measuring every wall, door, and window, come back to the office, and spend another day drafting it all up in CAD.</p>
+          <p>If anything was missed &mdash; and something is always missed &mdash; schedule another site visit. Each revisit costs $800-2,000 in billable hours and delays the project timeline.</p>
+          <ul>
+            <li>Average as-built documentation: 2-3 days per project</li>
+            <li>30% of site visits require a follow-up measurement trip</li>
+            <li>Junior architects spend more time measuring than designing</li>
+            <li>Laser scanners cost $30,000-80,000 and require training</li>
+          </ul>
+        </div>
+        <div class="content-img">
+          <img src="/assets/dimension-extraction.webp" alt="AI dimension extraction from room photograph" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-block section-alt">
+    <div class="container">
+      <div class="content-grid-2 reverse reveal">
+        <div class="content-img">
+          <img src="/assets/ai-interface-render.webp" alt="ArchLab AI interface showing rendered result" loading="lazy">
+        </div>
+        <div class="content-text">
+          <span class="section-label">The Solution</span>
+          <h2>Photograph the Room. ArchLab Handles the Rest.</h2>
+          <p>Walk into the space with your smartphone. Take photographs of each room. Upload to ArchLab. Within minutes, you have a dimensioned floor plan with walls, doors, windows, and structural elements identified and measured.</p>
+          <p>No tape measure. No laser scanner. No second visit. No junior architect spending two days in CAD.</p>
+          <ul>
+            <li>Works with smartphone photographs &mdash; no special equipment</li>
+            <li>Dimensions extracted deterministically from geometry</li>
+            <li>DXF/DWG export ready for your CAD software</li>
+            <li>Uncertainty flagged, never guessed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Workflow</span>
+        <h2 class="section-title">Three Steps to a Complete As-Built</h2>
+      </div>
+      <div class="steps-grid" style="margin-top:40px;">
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          </div>
+          <span class="step-number">Step 1</span>
+          <h3>Photograph the Space</h3>
+          <p>Walk through the space taking photos with your smartphone. Cover each room from multiple angles for best results.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <span class="step-number">Step 2</span>
+          <h3>AI Extracts Dimensions</h3>
+          <p>ArchLab identifies walls, openings, and structural elements, then derives real dimensions using geometric constraint solving.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <span class="step-number">Step 3</span>
+          <h3>Download CAD File</h3>
+          <p>Export a layer-separated DXF/DWG file ready for Revit, AutoCAD, or ArchiCAD. Start designing immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="final-cta reveal">
+        <h2 class="section-title">Stop Measuring. Start Designing.</h2>
+        <p class="section-sub">Join the waitlist to be among the first architects to eliminate as-built documentation drudgery.</p>
+        <div class="hero-buttons">
+          <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
+          <a href="/for-firms" class="btn btn-ghost">Request a Firm Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

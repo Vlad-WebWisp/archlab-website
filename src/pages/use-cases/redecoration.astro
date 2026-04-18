@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Room Redecoration — ArchLab AI"
+  description="Show clients their redesigned room before moving a single piece of furniture. AI-powered room visualization."
+  keywords="room redecoration AI, interior design visualization, virtual staging"
+>
+<section class="page-hero">
+    <div class="container">
+      <span class="badge">Use Case</span>
+      <h1 style="margin-top:16px;">Show Clients Their Redesigned Room <span class="text-gradient">Before You Move a Single Piece of Furniture</span></h1>
+      <p>Generate photorealistic redesign visuals from existing room photographs. Help clients see the vision before any work begins.</p>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <div class="container">
+      <div class="content-grid-2 reveal">
+        <div class="content-text">
+          <span class="section-label">The Problem</span>
+          <h2>Clients Cannot Visualise What They Cannot See</h2>
+          <p>Interior designers and architects know this frustration: you describe a redesign concept, show mood boards and material samples, but the client still cannot picture the final result in their actual space.</p>
+          <p>This leads to endless revision cycles, scope creep, and sometimes lost projects. Clients defer decisions because they cannot commit to a vision they cannot see. Projects stall. Timelines stretch.</p>
+          <ul>
+            <li>65% of design clients struggle to visualise proposed changes</li>
+            <li>Mood boards and material samples lack spatial context</li>
+            <li>3D modelling for redesign proposals takes days to produce</li>
+            <li>Revision cycles add 20-30% to project timelines</li>
+          </ul>
+        </div>
+        <div class="content-img">
+          <img src="/assets/ai-render-result.webp" alt="AI-rendered living room redesign" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-block section-alt">
+    <div class="container">
+      <div class="content-grid-2 reverse reveal">
+        <div class="content-img">
+          <img src="/assets/ai-interface-render.webp" alt="ArchLab AI rendering interface" loading="lazy">
+        </div>
+        <div class="content-text">
+          <span class="section-label">The Solution</span>
+          <h2>Photograph the Room. Describe the Changes. Show the Result.</h2>
+          <p>ArchLab takes a photograph of the existing room, extracts its dimensions and spatial layout, then generates a photorealistic render showing your proposed redesign &mdash; with accurate proportions and real dimensions.</p>
+          <p>Because we start with deterministic dimension extraction, the rendered result is spatially accurate. Furniture fits. Proportions are correct. Clients see exactly what the finished space will look like.</p>
+          <ul>
+            <li>Photorealistic renders from room photographs</li>
+            <li>Spatially accurate &mdash; furniture and elements are correctly proportioned</li>
+            <li>Multiple style variations in minutes, not days</li>
+            <li>Client-ready visuals for presentations and approvals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Workflow</span>
+        <h2 class="section-title">Redesign Visualisation in Three Steps</h2>
+      </div>
+      <div class="steps-grid" style="margin-top:40px;">
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <span class="step-number">Step 1</span>
+          <h3>Photograph Existing Room</h3>
+          <p>Take photos of the current space with your smartphone. ArchLab extracts dimensions and spatial layout automatically.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <span class="step-number">Step 2</span>
+          <h3>Describe Your Redesign</h3>
+          <p>Specify style changes, furniture selections, colour palettes, and material choices. ArchLab applies them to the real spatial layout.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <span class="step-number">Step 3</span>
+          <h3>Present to Client</h3>
+          <p>Share photorealistic before-and-after visuals. Clients approve with confidence because they can see exactly what they are getting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="final-cta reveal">
+        <h2 class="section-title">Help Clients See Their Dream Space Today</h2>
+        <p class="section-sub">Join the waitlist for early access to AI-powered redesign visualisation.</p>
+        <div class="hero-buttons">
+          <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
+          <a href="/for-firms" class="btn btn-ghost">Request a Firm Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

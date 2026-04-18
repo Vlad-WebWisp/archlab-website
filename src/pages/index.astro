@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ArchLab AI — Architecture AI That Gets the Dimensions Right"
+  description="Turn rough sketches, hand-drawn floor plans, and site photos into dimension-accurate, editable CAD files and 3D renders in seconds. Deterministic AI extraction — not generative guessing."
+>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Architecture AI That Gets the <span class="text-gradient">Dimensions Right</span></h1>
+          <p>Turn rough sketches, hand-drawn floor plans, and site photos into dimension-accurate, editable CAD files and 3D renders in seconds. Deterministic AI extraction &mdash; not generative guessing.</p>
+          <div class="hero-buttons">
+            <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
+            <a href="/how-it-works" class="btn btn-ghost">See How It Works</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="ba-slider" id="heroSlider">
+            <img src="/assets/sketch-before.webp" alt="Hand-drawn architectural sketch" class="ba-before" draggable="false">
+            <img src="/assets/render-after.webp" alt="Photorealistic room render from sketch" class="ba-after" draggable="false">
+            <div class="ba-handle" id="heroHandle"></div>
+            <span class="ba-label ba-label-before">Before</span>
+            <span class="ba-label ba-label-after">After</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <p>Trusted by architects at</p>
+      <div class="trust-logos">
+        <a href="https://c3darchitects.com/" target="_blank" rel="noopener"><img src="/assets/c3d-logo.webp" alt="C3D Architects" width="300" height="149" loading="lazy"></a>
+        <a href="https://webwispuk.com" target="_blank" rel="noopener"><img src="/assets/webwisp-logo.webp" alt="WebWisp" width="500" height="250" loading="lazy"></a>
+        <a href="https://integranos.com.br/" target="_blank" rel="noopener"><img src="/assets/integranos-logo.svg" alt="Integra.Nos" width="952" height="404" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS STEPS -->
+  <section class="section" id="home-steps">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">From Sketch to Editable Floor Plan in Three Steps</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid" style="margin-top:48px;">
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <span class="step-number">Step 1 &mdash; Upload</span>
+          <h3>Upload Any Sketch, Photo, or Scan</h3>
+          <p>Hand-drawn napkin sketch, site photograph, scanned PDF &mdash; ArchLab accepts any input format.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <span class="step-number">Step 2 &mdash; Extract</span>
+          <h3>AI Extracts Real Dimensions Deterministically</h3>
+          <p>Walls straighten. Angles snap to true values. Every measurement is derived from geometry, not predicted.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <span class="step-number">Step 3 &mdash; Export</span>
+          <h3>Export to CAD, 3D Render, or Both</h3>
+          <p>Download editable DXF/DWG files ready for Revit, AutoCAD, or ArchiCAD.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE/AFTER SHOWCASE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Dimension Extraction</span>
+        <h2 class="section-title">See AI Precision in Action</h2>
+      </div>
+      <div class="showcase-img reveal" style="margin-top:40px;">
+        <img src="/assets/dimension-extraction.webp" alt="Room photograph with AI-extracted dimension overlay lines in cyan" loading="lazy">
+      </div>
+      <p class="showcase-caption reveal">From photograph to dimension-mapped spatial data in seconds.</p>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Use Cases</span>
+        <h2 class="section-title">Built for the Workflows Architects and Designers Actually Use</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="uc-grid" style="margin-top:48px;">
+        <a href="/use-cases/renovation" class="uc-card reveal">
+          <div class="uc-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Renovation As-Builts</h3>
+          <p>Walk in with a phone, walk out with a dimensioned floor plan. No tape measure, no revisits.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+        <a href="/use-cases/sketch-to-cad" class="uc-card reveal">
+          <div class="uc-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3>Sketch to CAD</h3>
+          <p>Your napkin sketch becomes a clean, editable CAD file in 15 seconds. Measured and precise.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+        <a href="/use-cases/redecoration" class="uc-card reveal">
+          <div class="uc-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Room Redecoration</h3>
+          <p>Show clients their redesigned room before you move a single piece of furniture.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+        <a href="/use-cases/pitch-visuals" class="uc-card reveal">
+          <div class="uc-card-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Pitch Visuals</h3>
+          <p>Win the pitch before your competitor finishes their first sketch. Instant photorealistic renders.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><h3>15s</h3><p>Sketch to Floor Plan</p></div>
+        <div class="stat-item reveal"><h3>0</h3><p>Dimension Hallucinations</p></div>
+        <div class="stat-item reveal"><h3>22%</h3><p>Schematic Hours Recovered</p></div>
+        <div class="stat-item reveal"><h3>3</h3><p>Architecture Firm Partners</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section testimonial-section">
+    <div class="testimonial-bg">
+      <img src="/assets/render-after.webp" alt="" loading="lazy">
+    </div>
+    <div class="container">
+      <div class="testimonial-content reveal">
+        <p class="testimonial-quote">What Our Partners Say</p>
+        <blockquote>&ldquo;We used ArchLab on a commercial retrofit in Chicago and cut our as-built drafting time from two days to under an hour.&rdquo;</blockquote>
+        <cite>&mdash; <strong>Cristian Nicolaie</strong>, C3D Architects</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="final-cta reveal">
+        <h2 class="section-title">Ready to Stop Drawing and Start Designing?</h2>
+        <p class="section-sub">Join the waitlist for early access to dimension-accurate architecture AI.</p>
+        <div class="hero-buttons">
+          <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
+          <a href="/for-firms" class="btn btn-ghost">Request a Firm Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Before/After Slider
+    function initSlider() {
+      const slider = document.getElementById('heroSlider');
+      if (!slider) return;
+      const handle = document.getElementById('heroHandle');
+      const before = slider.querySelector('.ba-before') as HTMLImageElement;
+      let isDragging = false;
+
+      function setPosition(x: number) {
+        const rect = slider!.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(5, Math.min(95, pct));
+        before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        handle!.style.left = pct + '%';
+      }
+
+      slider.addEventListener('mousedown', (e) => { isDragging = true; setPosition(e.clientX); });
+      document.addEventListener('mousemove', (e) => { if (isDragging) { e.preventDefault(); setPosition(e.clientX); } });
+      document.addEventListener('mouseup', () => { isDragging = false; });
+
+      slider.addEventListener('touchstart', (e) => { isDragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+      document.addEventListener('touchmove', (e) => { if (isDragging) { setPosition(e.touches[0].clientX); } }, { passive: true });
+      document.addEventListener('touchend', () => { isDragging = false; });
+    }
+
+    initSlider();
+  </script>
+</BaseLayout>

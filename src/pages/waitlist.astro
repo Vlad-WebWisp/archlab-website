@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Join the Waitlist — ArchLab AI"
+  description="Get early access to dimension-accurate architecture AI. Join the waitlist for ArchLab."
+  keywords="ArchLab waitlist, architecture AI early access"
+>
+<section class="page-hero">
+    <div class="container">
+      <span class="section-label">Early Access</span>
+      <h1>Be First in Line for <span class="text-gradient">Precision Architecture AI</span></h1>
+      <p>Join the waitlist to get early access when we launch. Waitlist members receive priority onboarding and founding-member pricing.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid reveal">
+        <div class="form-card">
+          <h3 style="color:var(--text-heading-dark);margin-bottom:24px;font-size:1.25rem;">Join the Waitlist</h3>
+          <form data-form-type="waitlist">
+            <div class="form-group">
+              <label for="wl-name">Full Name</label>
+              <input type="text" id="wl-name" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="wl-email">Email Address</label>
+              <input type="email" id="wl-email" class="form-input" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="wl-role">I am a...</label>
+              <select id="wl-role" class="form-select" required>
+                <option value="">Select your role</option>
+                <option>Architect</option>
+                <option>Interior Designer</option>
+                <option>Architecture Firm Owner</option>
+                <option>Architecture Student</option>
+                <option>Real Estate Developer</option>
+                <option>Contractor / Builder</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Join the Waitlist <span aria-hidden="true">&rarr;</span></button>
+          </form>
+        </div>
+        <div>
+          <div class="sidebar waitlist-sidebar">
+            <h3>What You Get as a Waitlist Member</h3>
+            <ul class="benefit-list">
+              <li>Priority access when we launch</li>
+              <li>Founding-member pricing locked in for life</li>
+              <li>Direct input on feature roadmap</li>
+              <li>Invitation to private beta testing</li>
+              <li>Monthly progress updates from the team</li>
+            </ul>
+            <div class="social-proof-counter">
+              <span class="count">127</span>
+              <p>architects and designers already on the waitlist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

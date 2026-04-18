@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="How It Works — ArchLab AI"
+  description="A three-step pipeline powered by deterministic computer vision. Upload any sketch, extract real dimensions, and export to CAD or 3D render."
+  keywords="sketch to CAD AI, how AI extracts dimensions, deterministic floor plan AI"
+>
+<section class="page-hero">
+    <div class="container">
+      <span class="section-label">How It Works</span>
+      <h1>How ArchLab Converts Sketches into <span class="text-gradient">Dimension-Accurate Floor Plans</span></h1>
+      <p>A three-step pipeline powered by deterministic computer vision &mdash; no generative hallucination, no approximate guesses. Every dimension is derived from real geometry.</p>
+    </div>
+  </section>
+
+  <!-- Step 1 -->
+  <section class="content-block">
+    <div class="container">
+      <div class="content-grid-2 reveal">
+        <div class="content-img">
+          <img src="/assets/ai-interface-analysis.webp" alt="ArchLab AI analysis interface showing uploaded sketch" loading="lazy">
+        </div>
+        <div class="content-text">
+          <span class="step-number">Step 1</span>
+          <h2>Upload Your Sketch, Scan, or Photograph</h2>
+          <p>ArchLab accepts virtually any architectural input: hand-drawn sketches on napkins, scanned floor plans from paper archives, site photographs taken on a smartphone, or even rough PDFs from clients.</p>
+          <p>Our intake engine normalises orientation, corrects lens distortion from photos, and identifies architectural primitives &mdash; walls, doors, windows, and structural elements &mdash; before any measurement begins.</p>
+          <ul>
+            <li>Accepts JPEG, PNG, PDF, TIFF, HEIC, and WebP</li>
+            <li>Automatic orientation and lens correction</li>
+            <li>Primitive detection: walls, openings, columns, stairs</li>
+            <li>Works with incomplete or partial sketches</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2 -->
+  <section class="content-block section-alt">
+    <div class="container">
+      <div class="content-grid-2 reverse reveal">
+        <div class="content-img">
+          <img src="/assets/dimension-extraction.webp" alt="Dimension extraction with cyan overlay lines on room photograph" loading="lazy">
+        </div>
+        <div class="content-text">
+          <span class="step-number">Step 2</span>
+          <h2>Deterministic Dimension Extraction</h2>
+          <p>This is where ArchLab fundamentally differs from generative AI tools. Instead of predicting what a room might measure, our pipeline extracts real dimensions using geometric constraint solving.</p>
+          <p>Walls are straightened to their true alignment. Angles snap to structurally plausible values (90-degree, 45-degree, or as-built). Every measurement is derived from the spatial relationship between detected primitives &mdash; not hallucinated by a language model.</p>
+          <ul>
+            <li>Geometric constraint solver, not a generative model</li>
+            <li>Wall straightening and angle snapping</li>
+            <li>Sub-centimetre accuracy from calibrated inputs</li>
+            <li>Zero dimension hallucinations &mdash; if it cannot measure, it flags uncertainty</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3 -->
+  <section class="content-block">
+    <div class="container">
+      <div class="content-grid-2 reveal">
+        <div class="content-img">
+          <img src="/assets/render-after.webp" alt="Photorealistic 3D render generated from floor plan" loading="lazy">
+        </div>
+        <div class="content-text">
+          <span class="step-number">Step 3</span>
+          <h2>Export to CAD, 3D Render, or Both</h2>
+          <p>Once dimensions are extracted, ArchLab generates production-ready output in the format your workflow demands. Editable DXF and DWG files open directly in Revit, AutoCAD, ArchiCAD, and other BIM software.</p>
+          <p>Need a client-ready visual? Our rendering engine produces photorealistic 3D views from the same extracted floor plan &mdash; no additional modelling required.</p>
+          <ul>
+            <li>DXF/DWG export compatible with Revit, AutoCAD, ArchiCAD</li>
+            <li>Photorealistic 3D renders from floor plan data</li>
+            <li>Layer-separated output for walls, doors, windows, dimensions</li>
+            <li>Batch processing for multi-room or multi-floor projects</li>
+          </ul>
+          <div style="margin-top:24px;">
+            <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Deterministic -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Our Approach</span>
+        <h2 class="section-title">Why Deterministic AI Matters for Architecture</h2>
+        <p class="section-sub">Generative AI hallucinates. In architecture, a hallucinated dimension means a wall that does not fit, a door that does not open, or a structural element in the wrong place. ArchLab takes a different approach.</p>
+      </div>
+      <div class="steps-grid" style="margin-top:40px;">
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>No Hallucinations</h3>
+          <p>Every measurement output is derived from geometric relationships in your input. If ArchLab cannot determine a dimension with confidence, it flags it rather than guessing.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Reproducible Results</h3>
+          <p>Feed the same input twice, get the same output twice. Our deterministic pipeline eliminates the randomness inherent in generative models.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Professional-Grade Output</h3>
+          <p>Layer-separated CAD files, proper annotation, and BIM-compatible formats. Output that fits into real architectural workflows, not demo-ware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

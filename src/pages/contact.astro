@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — ArchLab AI"
+  description="Get in touch with the ArchLab team for demos, partnerships, or general enquiries."
+  keywords="contact ArchLab, architecture AI demo"
+>
+<section class="page-hero">
+    <div class="container">
+      <span class="section-label">Contact</span>
+      <h1>Let's <span class="text-gradient">Talk</span></h1>
+      <p>Whether you are an architect interested in piloting ArchLab, an investor, or a potential partner, we would love to hear from you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid reveal">
+        <div class="form-card">
+          <h3 style="color:var(--text-heading-dark);margin-bottom:24px;font-size:1.25rem;">Send Us a Message</h3>
+          <form data-form-type="contact">
+            <div class="form-group">
+              <label for="ct-name">Your Name</label>
+              <input type="text" id="ct-name" class="form-input" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label for="ct-email">Email Address</label>
+              <input type="email" id="ct-email" class="form-input" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="ct-type">Inquiry Type</label>
+              <select id="ct-type" class="form-select" required>
+                <option value="">Select inquiry type</option>
+                <option>Product Demo Request</option>
+                <option>Firm Partnership</option>
+                <option>Investment Inquiry</option>
+                <option>Media / Press</option>
+                <option>Technical Question</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ct-message">Message</label>
+              <textarea id="ct-message" class="form-textarea" placeholder="Tell us about your inquiry..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message <span aria-hidden="true">&rarr;</span></button>
+          </form>
+        </div>
+        <div>
+          <div class="contact-info-card">
+            <h4>Email</h4>
+            <p><a href="mailto:hello@archlab.ai" style="color:var(--accent);">hello@archlab.ai</a></p>
+          </div>
+          <div class="contact-info-card">
+            <h4>For Firms</h4>
+            <p><a href="mailto:firms@archlab.ai" style="color:var(--accent);">firms@archlab.ai</a></p>
+          </div>
+          <div class="contact-info-card">
+            <h4>For Investors</h4>
+            <p><a href="mailto:investors@archlab.ai" style="color:var(--accent);">investors@archlab.ai</a></p>
+          </div>
+          <div class="contact-info-card">
+            <h4>Headquarters</h4>
+            <p>ArchLab AI S.R.L.</p>
+            <p>Bucharest, Romania</p>
+          </div>
+          <div class="contact-info-card">
+            <h4>US Operations</h4>
+            <p>Chicago, Illinois</p>
+            <p>United States</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

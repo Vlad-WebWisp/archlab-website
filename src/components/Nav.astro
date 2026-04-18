@@ -1,0 +1,93 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/assets/archlab-logo-nav.png" alt="ArchLab AI" width="200" height="91">
+    </a>
+    <div class="nav-links">
+      <a href="/how-it-works" class:list={[{ active: currentPath === '/how-it-works/' }]}>How It Works</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-toggle" id="dropdownToggle">
+          Use Cases
+          <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="/use-cases/renovation">Renovation As-Builts</a>
+          <a href="/use-cases/sketch-to-cad">Sketch to CAD</a>
+          <a href="/use-cases/redecoration">Room Redecoration</a>
+          <a href="/use-cases/pitch-visuals">Pitch Visuals</a>
+        </div>
+      </div>
+      <a href="/for-firms" class:list={[{ active: currentPath === '/for-firms/' }]}>For Firms</a>
+      <a href="/about" class:list={[{ active: currentPath === '/about/' }]}>About</a>
+      <a href="/contact" class:list={[{ active: currentPath === '/contact/' }]}>Contact</a>
+    </div>
+    <div class="nav-cta" style="display:flex;align-items:center;">
+      <a href="/waitlist" class="btn btn-primary btn-sm">Join Waitlist <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/how-it-works">How It Works</a>
+  <button class="mobile-menu-dropdown-toggle" id="mobileDropdownToggle">Use Cases</button>
+  <div class="mobile-dropdown-items" id="mobileDropdownItems">
+    <a href="/use-cases/renovation">Renovation As-Builts</a>
+    <a href="/use-cases/sketch-to-cad">Sketch to CAD</a>
+    <a href="/use-cases/redecoration">Room Redecoration</a>
+    <a href="/use-cases/pitch-visuals">Pitch Visuals</a>
+  </div>
+  <a href="/for-firms">For Firms</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+  <a href="/waitlist" class="btn btn-primary" style="margin-top:24px;text-align:center;justify-content:center;">Join Waitlist <span aria-hidden="true">&rarr;</span></a>
+</div>
+
+<script>
+  // Desktop dropdown
+  const dropdownToggle = document.getElementById('dropdownToggle');
+  const navDropdown = document.getElementById('navDropdown');
+
+  dropdownToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navDropdown?.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navDropdown && !navDropdown.contains(e.target as Node)) {
+      navDropdown.classList.remove('open');
+    }
+  });
+
+  // Mobile menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburgerBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('open');
+    document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Mobile dropdown
+  const mobileDropdownToggle = document.getElementById('mobileDropdownToggle');
+  const mobileDropdownItems = document.getElementById('mobileDropdownItems');
+
+  mobileDropdownToggle?.addEventListener('click', () => {
+    mobileDropdownItems?.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
