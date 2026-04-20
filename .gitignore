@@ -17,3 +17,9 @@ node_modules/
 
 # astro
 .astro/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
