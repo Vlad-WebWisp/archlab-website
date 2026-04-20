@@ -30,13 +30,17 @@ public/
 - `src/components/Footer.astro` — Site-wide footer
 
 ## Brand Tokens (CSS Custom Properties)
+Light "architect studio" palette — warm off-white backgrounds, deep navy primary, muted teal accent.
 ```css
---bg-dark: #0B1222;
---bg-alt: #0F1A2E;
---primary: #2563EB;
---accent: #06B6D4;
---cta-gradient: linear-gradient(135deg, #2563EB, #06B6D4);
+--bg-dark:    #FAFAF8;   /* main page — warm paper white */
+--bg-alt:     #F2F0EC;   /* alt sections */
+--bg-light:   #FFFFFF;   /* cards, forms, elevated surfaces */
+--primary:    #1A3A5C;   /* solid CTAs, stats numbers, active nav */
+--accent:     #276977;   /* muted teal — links, section labels */
+--pencil-line:  #3A3A35; /* icon strokes */
+--pencil-light: #B8B5AD; /* subtle borders, hover */
 ```
+Buttons are solid fills (no gradients). Font: self-hosted DM Sans via `@fontsource/dm-sans` (imported in `BaseLayout.astro`).
 
 ## Pages (15 total)
 - `/` — Homepage with hero, trust bar, use case cards, stats, testimonial
