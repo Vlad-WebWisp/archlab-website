@@ -17,3 +17,8 @@ node_modules/
 
 # astro
 .astro/
+
+# cloudflare / wrangler
+.wrangler/
+.dev.vars
+worker-configuration.d.ts

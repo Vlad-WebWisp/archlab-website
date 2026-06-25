@@ -1,0 +1,180 @@
+---
+// Standalone, password-gated admin view for waitlist signups.
+// Not linked anywhere and excluded from search engines. The password is
+// checked server-side by /api/admin/signups against the ADMIN_PASSWORD secret.
+export const prerender = false;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Waitlist Admin — ArchLab</title>
+    <style>
+      :root {
+        --bg: #0b1222;
+        --bg-alt: #0f1a2e;
+        --border: #1e2a44;
+        --text: #e6ecf5;
+        --muted: #8b9bb4;
+        --primary: #2563eb;
+        --accent: #06b6d4;
+        --danger: #f87171;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+      .wrap { max-width: 1000px; margin: 0 auto; padding: 48px 24px; }
+      h1 { font-size: 1.5rem; margin: 0 0 4px; }
+      p.sub { color: var(--muted); margin: 0 0 32px; }
+      .card {
+        background: var(--bg-alt);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+      }
+      label { display: block; font-size: .85rem; color: var(--muted); margin-bottom: 8px; }
+      input[type='password'] {
+        width: 100%; padding: 12px 14px; border-radius: 8px;
+        border: 1px solid var(--border); background: var(--bg);
+        color: var(--text); font-size: 1rem;
+      }
+      .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+      button {
+        cursor: pointer; border: none; border-radius: 8px; padding: 12px 20px;
+        font-size: .95rem; font-weight: 600; color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+      }
+      button.ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+      button:disabled { opacity: .5; cursor: default; }
+      .err { color: var(--danger); font-size: .9rem; margin-top: 12px; min-height: 1.2em; }
+      .toolbar { display: flex; justify-content: space-between; align-items: center; margin: 28px 0 16px; gap: 12px; flex-wrap: wrap; }
+      .count { color: var(--muted); font-size: .9rem; }
+      table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+      th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+      th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+      tr:hover td { background: rgba(255, 255, 255, .02); }
+      .hidden { display: none; }
+      .empty { color: var(--muted); padding: 32px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Waitlist Signups</h1>
+      <p class="sub">ArchLab — internal admin</p>
+
+      <div id="login" class="card">
+        <form id="login-form">
+          <label for="pw">Admin password</label>
+          <div class="row">
+            <input type="password" id="pw" autocomplete="current-password" style="flex:1;min-width:200px" />
+            <button type="submit" id="login-btn">View signups</button>
+          </div>
+          <div class="err" id="login-err"></div>
+        </form>
+      </div>
+
+      <div id="dashboard" class="hidden">
+        <div class="toolbar">
+          <span class="count" id="count"></span>
+          <div class="row">
+            <button class="ghost" id="refresh">Refresh</button>
+            <button id="export">Export CSV</button>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:auto">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <div class="empty hidden" id="empty">No signups yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      const $ = (id) => document.getElementById(id);
+      let password = '';
+
+      const esc = (s) =>
+        String(s ?? '').replace(/[&<>"']/g, (c) =>
+          ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])
+        );
+
+      async function load() {
+        const res = await fetch('/api/admin/signups', {
+          headers: { Authorization: 'Bearer ' + password },
+        });
+        if (res.status === 401) throw new Error('Incorrect password.');
+        if (!res.ok) throw new Error('Could not load signups.');
+        return res.json();
+      }
+
+      function render(data) {
+        $('count').textContent = data.count + (data.count === 1 ? ' signup' : ' signups');
+        const tbody = $('rows');
+        tbody.innerHTML = '';
+        $('empty').classList.toggle('hidden', data.count > 0);
+        for (const s of data.signups) {
+          const tr = document.createElement('tr');
+          const joined = (s.created_at || '').replace('T', ' ').replace('Z', '');
+          tr.innerHTML =
+            '<td>' + s.id + '</td>' +
+            '<td>' + esc(s.name) + '</td>' +
+            '<td>' + esc(s.email) + '</td>' +
+            '<td>' + esc(s.role) + '</td>' +
+            '<td>' + esc(joined) + '</td>';
+          tbody.appendChild(tr);
+        }
+      }
+
+      $('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        $('login-err').textContent = '';
+        $('login-btn').disabled = true;
+        password = $('pw').value;
+        try {
+          const data = await load();
+          $('login').classList.add('hidden');
+          $('dashboard').classList.remove('hidden');
+          render(data);
+        } catch (err) {
+          $('login-err').textContent = err.message;
+        } finally {
+          $('login-btn').disabled = false;
+        }
+      });
+
+      $('refresh').addEventListener('click', async () => {
+        try {
+          render(await load());
+        } catch (err) {
+          alert(err.message);
+        }
+      });
+
+      $('export').addEventListener('click', async () => {
+        const res = await fetch('/api/admin/signups?format=csv', {
+          headers: { Authorization: 'Bearer ' + password },
+        });
+        if (!res.ok) return alert('Export failed.');
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'archlab-waitlist.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    </script>
+  </body>
+</html>

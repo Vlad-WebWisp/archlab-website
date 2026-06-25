@@ -81,18 +81,58 @@ const { title, description, keywords = 'architecture AI, sketch to CAD, floor pl
 
     // Form handling
     document.querySelectorAll('form[data-form-type]').forEach(form => {
-      form.addEventListener('submit', (event) => {
+      form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const btn = (event.target as HTMLFormElement).querySelector('button[type="submit"]') as HTMLButtonElement;
+        const target = event.target as HTMLFormElement;
+        const btn = target.querySelector('button[type="submit"]') as HTMLButtonElement;
         if (!btn) return;
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<span style="color:#10B981;">Submitted successfully!</span>';
+
+        const showResult = (msg: string, color: string) => {
+          btn.innerHTML = '<span style="color:' + color + ';">' + msg + '</span>';
+        };
+        const restore = (reset: boolean) => {
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            if (reset) target.reset();
+          }, 3000);
+        };
+
+        // The waitlist form posts to a real endpoint (Cloudflare D1).
+        if (target.dataset.formType === 'waitlist') {
+          btn.disabled = true;
+          btn.innerHTML = 'Joining…';
+          const payload = {
+            name: (target.querySelector('#wl-name') as HTMLInputElement)?.value ?? '',
+            email: (target.querySelector('#wl-email') as HTMLInputElement)?.value ?? '',
+            role: (target.querySelector('#wl-role') as HTMLSelectElement)?.value ?? '',
+          };
+          try {
+            const res = await fetch('/api/waitlist', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.ok) {
+              showResult(data.alreadyOnList ? "You're already on the list!" : "You're on the list!", '#10B981');
+              restore(true);
+            } else {
+              showResult(data.error || 'Something went wrong.', '#F87171');
+              restore(false);
+            }
+          } catch {
+            showResult('Network error — please try again.', '#F87171');
+            restore(false);
+          }
+          return;
+        }
+
+        // Other forms remain client-side placeholders (backend TBD).
+        showResult('Submitted successfully!', '#10B981');
         btn.disabled = true;
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-          (event.target as HTMLFormElement).reset();
-        }, 3000);
+        restore(true);
       });
     });
 

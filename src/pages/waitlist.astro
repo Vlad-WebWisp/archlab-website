@@ -23,15 +23,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <form data-form-type="waitlist">
             <div class="form-group">
               <label for="wl-name">Full Name</label>
-              <input type="text" id="wl-name" class="form-input" placeholder="Your full name" required>
+              <input type="text" id="wl-name" name="name" class="form-input" placeholder="Your full name" required>
             </div>
             <div class="form-group">
               <label for="wl-email">Email Address</label>
-              <input type="email" id="wl-email" class="form-input" placeholder="you@email.com" required>
+              <input type="email" id="wl-email" name="email" class="form-input" placeholder="you@email.com" required>
             </div>
             <div class="form-group">
               <label for="wl-role">I am a...</label>
-              <select id="wl-role" class="form-select" required>
+              <select id="wl-role" name="role" class="form-select" required>
                 <option value="">Select your role</option>
                 <option>Architect</option>
                 <option>Interior Designer</option>
