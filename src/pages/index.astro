@@ -1,31 +1,102 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const APP = 'https://client.archlab.pro';
+const SIGNUP = `${APP}/signup`;
+const PRICING = `${APP}/pricing`;
+const SITE = 'https://archlab.pro';
+
+// Single source of truth for the on-page FAQ + the FAQPage schema.
+const faqs = [
+  {
+    q: 'What does ArchLab do?',
+    a: "ArchLab is an accuracy-first AI platform for architects. The live product turns hand-drawn sketches and concept images into photorealistic architectural renders in seconds. Extracting real dimensions from site photos, plus CAD and BIM export, are on the roadmap.",
+  },
+  {
+    q: 'Can I use ArchLab today?',
+    a: "Yes. The sketch-to-render product is live — you can sign up free and start rendering right away. New capabilities are released iteratively, so joining the waitlist gets you early access to upcoming features and a say in what ships next.",
+  },
+  {
+    q: 'How is ArchLab different from generative AI tools like Midjourney?',
+    a: "Generative image tools predict what a space should look like and often invent dimensions, proportions and details. ArchLab is built accuracy-first: renders are generated to respect your real proportions, and our upcoming extraction tools derive measurements from geometry rather than guessing. Generic AI imagines spaces; ArchLab measures them.",
+  },
+  {
+    q: 'What can I upload to create a render?',
+    a: "Hand-drawn sketches, concept images, and model screenshots from tools like SketchUp, Revit or Rhino. ArchLab accepts common formats including JPEG, PNG, WebP, HEIC (iPhone photos) and PDF.",
+  },
+  {
+    q: 'How much does ArchLab cost?',
+    a: "You can start for free. Current plans are on our pricing page, and waitlist members receive founding-member pricing on upcoming features. For firms, we offer an evaluation on one of your real projects.",
+  },
+  {
+    q: 'What is on the ArchLab roadmap?',
+    a: "Sketch-to-render is live today. Next is photo-to-dimension extraction, followed by editable CAD export (DXF/DWG), 3D, Revit and BIM/IFC outputs, and later interior design and decoration. ArchLab is developed iteratively with close input from early users.",
+  },
+  {
+    q: 'Where is ArchLab based?',
+    a: "ArchLab is built by ArchLab AI S.R.L., based in Arad, Romania, working with architecture partners internationally.",
+  },
+];
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'ArchLab',
+  applicationCategory: 'DesignApplication',
+  operatingSystem: 'Web browser',
+  url: SITE,
+  description:
+    'AI that turns hand-drawn architectural sketches into photorealistic renders with true-to-life proportions. Accuracy-first architecture AI for architects and designers.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: PRICING },
+  publisher: {
+    '@type': 'Organization',
+    name: 'ArchLab AI',
+    address: { '@type': 'PostalAddress', addressLocality: 'Arad', addressCountry: 'RO' },
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
-  title="ArchLab AI — Architecture AI That Gets the Dimensions Right"
-  description="Turn rough sketches, hand-drawn floor plans, and site photos into dimension-accurate, editable CAD files and 3D renders in seconds. Deterministic AI extraction — not generative guessing."
+  title="AI Sketch to Render for Architects — ArchLab"
+  description="Turn hand-drawn sketches into photorealistic architectural renders in seconds. ArchLab is the accuracy-first AI for architects — with photo-to-dimension extraction, CAD and BIM export on the roadmap."
+  keywords="ai for architects, sketch to render, sketch to render ai, architectural rendering, ai architecture, ai architectural rendering"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
 
   <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-text">
-          <h1>Architecture AI That Gets the <span class="text-gradient">Dimensions Right</span></h1>
-          <p>Turn rough sketches, hand-drawn floor plans, and site photos into dimension-accurate, editable CAD files and 3D renders in seconds. Deterministic AI extraction &mdash; not generative guessing.</p>
+          <span class="section-label">Live now — AI Sketch to Render</span>
+          <h1>Turn a Hand Sketch into a Photorealistic <span class="text-gradient">Architectural Render</span></h1>
+          <p>ArchLab is the accuracy-first AI for architects. The live product turns rough sketches and concept images into photorealistic renders in seconds — the first step toward one precise pipeline from concept to construction.</p>
           <div class="hero-buttons">
-            <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
-            <a href="/how-it-works" class="btn btn-ghost">See How It Works</a>
+            <a href={SIGNUP} class="btn btn-primary">Start rendering — free <span aria-hidden="true">&rarr;</span></a>
+            <a href="#how" class="btn btn-ghost">See how it works</a>
           </div>
+          <p class="hero-note">Free to start · No card required · Renders in seconds</p>
         </div>
         <div class="hero-visual">
           <div class="ba-slider" id="heroSlider">
-            <img src="/assets/sketch-before.webp" alt="Hand-drawn architectural sketch" class="ba-before" draggable="false">
-            <img src="/assets/render-after.webp" alt="Photorealistic room render from sketch" class="ba-after" draggable="false">
+            <img src="/assets/sketch-before.webp" alt="Hand-drawn architectural sketch before AI rendering" class="ba-before" draggable="false">
+            <img src="/assets/render-after.webp" alt="Photorealistic architectural render generated from a sketch" class="ba-after" draggable="false">
             <div class="ba-handle" id="heroHandle"></div>
-            <span class="ba-label ba-label-before">Before</span>
-            <span class="ba-label ba-label-after">After</span>
+            <span class="ba-label ba-label-before">Sketch</span>
+            <span class="ba-label ba-label-after">Render</span>
           </div>
         </div>
       </div>
@@ -35,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- TRUST BAR -->
   <section class="trust-bar">
     <div class="container">
-      <p>Developed in Partnership with</p>
+      <p>Developed in partnership with</p>
       <div class="trust-logos">
         <a href="https://c3darchitects.com/" target="_blank" rel="noopener"><img src="/assets/c3d-logo.webp" alt="C3D Architects" width="300" height="149" loading="lazy"></a>
         <a href="https://webwispuk.com" target="_blank" rel="noopener"><img src="/assets/Webwisp-logo-Black.webp" alt="WebWisp" width="499" height="249" loading="lazy"></a>
@@ -44,12 +115,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- HOW IT WORKS STEPS -->
-  <section class="section" id="home-steps">
+  <!-- HOW IT WORKS (LIVE FEATURE) -->
+  <section class="section" id="how">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">How It Works</span>
-        <h2 class="section-title">From Sketch to Editable Floor Plan in Three Steps</h2>
+        <h2 class="section-title">From Sketch to Render in Three Steps</h2>
         <div class="divider"></div>
       </div>
       <div class="steps-grid" style="margin-top:48px;">
@@ -58,40 +129,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           </div>
           <span class="step-number">Step 1 &mdash; Upload</span>
-          <h3>Upload Any Sketch, Photo, or Scan</h3>
-          <p>Hand-drawn napkin sketch, site photograph, scanned PDF &mdash; ArchLab accepts any input format.</p>
+          <h3>Upload Your Sketch or Concept</h3>
+          <p>A hand-drawn sketch, a napkin concept, or a model screenshot from SketchUp, Revit or Rhino — ArchLab takes it from here.</p>
         </div>
         <div class="step-card reveal">
           <div class="step-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
-          <span class="step-number">Step 2 &mdash; Extract</span>
-          <h3>AI Extracts Real Dimensions Deterministically</h3>
-          <p>Walls straighten. Angles snap to true values. Every measurement is derived from geometry, not predicted.</p>
+          <span class="step-number">Step 2 &mdash; Style</span>
+          <h3>Choose a Style and Render</h3>
+          <p>Pick a material palette, lighting and mood. ArchLab generates a photorealistic render that respects your proportions — in seconds.</p>
         </div>
         <div class="step-card reveal">
           <div class="step-icon">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </div>
-          <span class="step-number">Step 3 &mdash; Export</span>
-          <h3>Export to CAD, 3D Render, or Both</h3>
-          <p>Download editable DXF/DWG files ready for Revit, AutoCAD, or ArchiCAD.</p>
+          <span class="step-number">Step 3 &mdash; Iterate &amp; Export</span>
+          <h3>Refine and Download</h3>
+          <p>Adjust by prompt, generate variations, and download high-resolution renders ready for client presentations and pitches.</p>
         </div>
+      </div>
+      <div class="text-center" style="margin-top:40px;">
+        <a href={SIGNUP} class="btn btn-primary">Try it on your sketch <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- BEFORE/AFTER SHOWCASE -->
-  <section class="section section-alt">
+  <!-- ACCURACY WEDGE / COMPARISON -->
+  <section class="section section-alt" id="accuracy">
     <div class="container">
       <div class="text-center reveal">
-        <span class="section-label">Dimension Extraction</span>
-        <h2 class="section-title">See AI Precision in Action</h2>
+        <span class="section-label">Measured, Not Imagined</span>
+        <h2 class="section-title">Renders That Respect Real Dimensions</h2>
+        <p class="section-sub">Most AI image tools invent a pretty picture. ArchLab is built so your proportions stay true — a render you can actually design and present from.</p>
       </div>
-      <div class="showcase-img reveal" style="margin-top:40px;">
-        <img src="/assets/floor-plan-sketch.webp" alt="Hand-drawn floor plan sketch with AI-extracted dimensions" loading="lazy">
+      <div class="compare-grid reveal">
+        <div class="compare-col compare-bad">
+          <h3>Generic AI image tools</h3>
+          <ul>
+            <li>Invent dimensions and proportions</li>
+            <li>Doors and windows that defy the plan</li>
+            <li>Beautiful, but not buildable</li>
+            <li>No path to CAD, 3D or BIM</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-good">
+          <h3>ArchLab</h3>
+          <ul>
+            <li>Renders that hold your real proportions</li>
+            <li>Built accuracy-first, for architects</li>
+            <li>Faithful to your sketch and intent</li>
+            <li>The first step toward CAD, 3D and BIM</li>
+          </ul>
+        </div>
       </div>
-      <p class="showcase-caption reveal">From photograph to dimension-mapped spatial data in seconds.</p>
     </div>
   </section>
 
@@ -100,24 +191,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">Use Cases</span>
-        <h2 class="section-title">Built for the Workflows Architects and Designers Actually Use</h2>
+        <h2 class="section-title">Built for the Way Architects and Designers Actually Work</h2>
         <div class="divider"></div>
       </div>
       <div class="uc-grid" style="margin-top:48px;">
-        <a href="/use-cases/renovation" class="uc-card reveal">
+        <a href="/use-cases/pitch-visuals" class="uc-card reveal">
           <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <h3>Renovation As-Builts</h3>
-          <p>Walk in with a phone, walk out with a dimensioned floor plan. No tape measure, no revisits.</p>
-          <span class="card-link">Learn more &rarr;</span>
-        </a>
-        <a href="/use-cases/sketch-to-cad" class="uc-card reveal">
-          <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-          </div>
-          <h3>Sketch to CAD</h3>
-          <p>Your napkin sketch becomes a clean, editable CAD file in 15 seconds. Measured and precise.</p>
+          <h3>Pitch &amp; Concept Visuals</h3>
+          <p>Win the pitch before your competitor finishes their first sketch. Photorealistic concept renders in seconds.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
         <a href="/use-cases/redecoration" class="uc-card reveal">
@@ -128,14 +211,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>Show clients their redesigned room before you move a single piece of furniture.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
-        <a href="/use-cases/pitch-visuals" class="uc-card reveal">
+        <a href="/use-cases/renovation" class="uc-card reveal">
           <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
-          <h3>Pitch Visuals</h3>
-          <p>Win the pitch before your competitor finishes their first sketch. Instant photorealistic renders.</p>
+          <h3>Renovation Visuals</h3>
+          <p>Turn a site photo or rough plan into a clear before-and-after your client can picture instantly.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
+        <a href="/use-cases/sketch-to-cad" class="uc-card reveal">
+          <div class="uc-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3>Sketch to CAD <span class="uc-soon">Coming soon</span></h3>
+          <p>Your napkin sketch becomes a clean, measured, editable CAD file. On the roadmap — join the waitlist for early access.</p>
+          <span class="card-link">See the roadmap &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION / ROADMAP -->
+  <section class="section section-alt" id="vision">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">The Vision</span>
+        <h2 class="section-title">One Precise Pipeline, From Sketch to Building</h2>
+        <p class="section-sub">ArchLab is built iteratively, guided by the architects who use it. Our goal: take a hand-drawn sketch all the way to renders, technical blueprints, 3D, Revit and BIM files — every output an architect needs to move a project toward construction. The earlier you join, the more you shape what we build.</p>
+      </div>
+      <ol class="roadmap reveal">
+        <li class="roadmap-item is-live">
+          <span class="roadmap-tag">Live now</span>
+          <h3>Sketch to Render</h3>
+          <p>Photorealistic renders from sketches and concept images, in seconds.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Next</span>
+          <h3>Photo to Dimensions</h3>
+          <p>Extract real, technical dimensions from site photos — accuracy, not guesswork.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Then</span>
+          <h3>Editable CAD &amp; Blueprints</h3>
+          <p>Clean, layer-separated DXF/DWG you can open in AutoCAD or ArchiCAD.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Then</span>
+          <h3>3D, Revit &amp; BIM</h3>
+          <p>Structured 3D and BIM/IFC outputs that drop into your existing workflow.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Later</span>
+          <h3>Interior Design &amp; Decoration</h3>
+          <p>Extending the same precise pipeline into interiors and decoration.</p>
+        </li>
+      </ol>
+      <div class="text-center" style="margin-top:40px;">
+        <a href="/waitlist" class="btn btn-primary">Join the waitlist — shape what's next <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -144,7 +276,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="stats-bar">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-item reveal"><h3>15s</h3><p>Sketch to Floor Plan</p></div>
+        <div class="stat-item reveal"><h3>Seconds</h3><p>Sketch to Render</p></div>
         <div class="stat-item reveal"><h3>0</h3><p>Dimension Hallucinations</p></div>
         <div class="stat-item reveal"><h3>22%</h3><p>Schematic Hours Recovered</p></div>
         <div class="stat-item reveal"><h3>3</h3><p>Architecture Firm Partners</p></div>
@@ -164,19 +296,135 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="accordion reveal" style="margin-top:40px;">
+        {faqs.map((f) => (
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>{f.q}</span>
+              <span class="accordion-icon"></span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>{f.a}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="final-cta reveal">
-        <h2 class="section-title">Ready to Stop Drawing and Start Designing?</h2>
-        <p class="section-sub">Join the waitlist for early access to dimension-accurate architecture AI.</p>
+        <h2 class="section-title">Start Rendering Today. Help Shape What's Next.</h2>
+        <p class="section-sub">Sign up free to render your first sketch in seconds — or join the waitlist for early access to dimension extraction, CAD and BIM.</p>
         <div class="hero-buttons">
-          <a href="/waitlist" class="btn btn-primary">Join the Waitlist <span aria-hidden="true">&rarr;</span></a>
-          <a href="/for-firms" class="btn btn-ghost">Request a Firm Demo</a>
+          <a href={SIGNUP} class="btn btn-primary">Start rendering — free <span aria-hidden="true">&rarr;</span></a>
+          <a href="/waitlist" class="btn btn-ghost">Join the waitlist</a>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .hero-note { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Accuracy comparison */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .compare-col {
+      background: var(--bg-light);
+      border: 1px solid var(--pencil-light);
+      border-radius: 12px;
+      padding: 28px 28px 32px;
+    }
+    .compare-col h3 { font-size: 1.1rem; margin-bottom: 16px; color: var(--text-heading-dark); }
+    .compare-col ul { list-style: none; padding: 0; margin: 0; }
+    .compare-col li {
+      position: relative;
+      padding: 8px 0 8px 30px;
+      color: var(--text-body-dark);
+      font-size: 0.95rem;
+    }
+    .compare-col li::before {
+      position: absolute; left: 0; top: 7px;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700;
+    }
+    .compare-bad { opacity: 0.92; }
+    .compare-bad li::before { content: '\00d7'; background: #f2dede; color: #b3503f; }
+    .compare-good { border-color: var(--primary); box-shadow: 0 4px 24px rgba(26,58,92,0.08); }
+    .compare-good li::before { content: '\2713'; background: var(--primary); color: #fff; }
+
+    /* "Coming soon" pill on the use-case card */
+    .uc-soon {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      vertical-align: middle;
+      margin-left: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--bg-alt);
+      color: var(--accent);
+    }
+
+    /* Roadmap */
+    .roadmap {
+      list-style: none;
+      counter-reset: roadmap;
+      margin: 48px auto 0;
+      max-width: 760px;
+      padding: 0;
+    }
+    .roadmap-item {
+      position: relative;
+      padding: 0 0 28px 36px;
+      border-left: 2px solid var(--pencil-light);
+    }
+    .roadmap-item:last-child { padding-bottom: 0; }
+    .roadmap-item::before {
+      content: '';
+      position: absolute; left: -8px; top: 2px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg-alt); border: 2px solid var(--pencil-light);
+    }
+    .roadmap-item.is-live { border-left-color: var(--primary); }
+    .roadmap-item.is-live::before { background: var(--primary); border-color: var(--primary); }
+    .roadmap-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .roadmap-item.is-live .roadmap-tag { color: var(--primary); }
+    .roadmap-item h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--text-heading-dark); }
+    .roadmap-item p { color: var(--text-body-dark); font-size: 0.95rem; }
+
+    @media (max-width: 700px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 
   <script>
     // Before/After Slider
