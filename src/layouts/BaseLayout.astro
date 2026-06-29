@@ -120,8 +120,19 @@ const { title, description, keywords = 'architecture AI, sketch to CAD, floor pl
             });
             const data = await res.json().catch(() => ({}));
             if (res.ok && data.ok) {
-              showResult(data.alreadyOnList ? "You're already on the list!" : "You're on the list!", '#10B981');
-              restore(true);
+              // Replace the form with a confirmation card.
+              const card = document.createElement('div');
+              card.className = 'form-success';
+              card.setAttribute('role', 'status');
+              const tick = document.createElement('div');
+              tick.className = 'form-success-tick';
+              tick.textContent = '✓';
+              const heading = document.createElement('h3');
+              heading.textContent = data.alreadyOnList ? "You're already on the list" : "You're on the list — thank you!";
+              const msg = document.createElement('p');
+              msg.textContent = 'We’ll email ' + (payload.email || 'you') + ' with development news and early access as new features ship.';
+              card.append(tick, heading, msg);
+              target.replaceWith(card);
             } else {
               showResult(data.error || 'Something went wrong.', '#F87171');
               restore(false);

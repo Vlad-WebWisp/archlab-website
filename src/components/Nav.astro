@@ -1,5 +1,11 @@
 ---
 const currentPath = Astro.url.pathname;
+
+// Live product app (separate subdomain).
+const APP = 'https://client.archlab.pro';
+const LOGIN = `${APP}/login`;
+const SIGNUP = `${APP}/signup`;
+const PRICING = `${APP}/pricing`;
 ---
 
 <nav class="nav" id="mainNav">
@@ -21,12 +27,14 @@ const currentPath = Astro.url.pathname;
           <a href="/use-cases/pitch-visuals">Pitch Visuals</a>
         </div>
       </div>
+      <a href={PRICING}>Pricing</a>
       <a href="/for-firms" class:list={[{ active: currentPath === '/for-firms/' }]}>For Firms</a>
       <a href="/about" class:list={[{ active: currentPath === '/about/' }]}>About</a>
-      <a href="/contact" class:list={[{ active: currentPath === '/contact/' }]}>Contact</a>
     </div>
     <div class="nav-cta" style="display:flex;align-items:center;">
-      <a href="/waitlist" class="btn btn-primary btn-sm">Join Waitlist <span aria-hidden="true">&rarr;</span></a>
+      <a href="/waitlist" class="nav-waitlist-link">Join waitlist</a>
+      <a href={LOGIN} class="nav-login">Log in</a>
+      <a href={SIGNUP} class="btn btn-primary btn-sm">Sign up free <span aria-hidden="true">&rarr;</span></a>
     </div>
     <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -44,10 +52,12 @@ const currentPath = Astro.url.pathname;
     <a href="/use-cases/redecoration">Room Redecoration</a>
     <a href="/use-cases/pitch-visuals">Pitch Visuals</a>
   </div>
+  <a href={PRICING}>Pricing</a>
   <a href="/for-firms">For Firms</a>
   <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-  <a href="/waitlist" class="btn btn-primary" style="margin-top:24px;text-align:center;justify-content:center;">Join Waitlist <span aria-hidden="true">&rarr;</span></a>
+  <a href="/waitlist">Join the waitlist</a>
+  <a href={LOGIN} class="btn btn-ghost" style="margin-top:24px;text-align:center;justify-content:center;">Log in</a>
+  <a href={SIGNUP} class="btn btn-primary" style="margin-top:12px;text-align:center;justify-content:center;">Sign up free <span aria-hidden="true">&rarr;</span></a>
 </div>
 
 <script>
