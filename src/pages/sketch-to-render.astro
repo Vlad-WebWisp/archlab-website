@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const SIGNUP = 'https://client.archlab.pro/signup';
+
+const faqs = [
+  {
+    q: 'How do I turn a sketch into a render with ArchLab?',
+    a: "Upload a hand-drawn sketch, concept image or model screenshot, choose a style, material palette and lighting, and ArchLab generates a photorealistic architectural render in seconds. You can refine by prompt and download high-resolution results.",
+  },
+  {
+    q: 'How long does an AI render take?',
+    a: "Seconds. ArchLab produces a photorealistic render almost immediately, so you can iterate on materials, lighting and mood in real time rather than waiting on a traditional visualisation pipeline.",
+  },
+  {
+    q: 'What can I upload to create a render?',
+    a: "Hand-drawn sketches, concept images and model screenshots from SketchUp, Revit or Rhino. Supported formats include JPEG, PNG, WebP, HEIC (iPhone photos) and PDF.",
+  },
+  {
+    q: 'Are ArchLab renders accurate to my design?',
+    a: "ArchLab is built accuracy-first: renders are generated to respect the proportions and layout of your input rather than inventing an unrelated scene. That makes them suitable for client presentations and design development, not just inspiration.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="AI Sketch to Render — Architectural Rendering in Seconds | ArchLab"
+  description="Turn a hand-drawn sketch into a photorealistic architectural render in seconds with ArchLab's accuracy-first AI rendering. Upload a sketch, choose a style, and download high-resolution renders."
+  keywords="sketch to render, sketch to render ai, architectural rendering, ai architectural rendering, ai render, architecture rendering software"
+  ogImage="/assets/render-after.webp"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Live now</span>
+      <h1>AI Sketch to <span class="text-gradient">Render</span>, in Seconds</h1>
+      <p>Upload a hand-drawn sketch or concept image and get a photorealistic architectural render — accuracy-first, so your proportions stay true. Built for architects and designers who need to show, not just tell.</p>
+      <div class="hero-buttons" style="justify-content:center;">
+        <a href={SIGNUP} class="btn btn-primary">Start rendering <span aria-hidden="true">&rarr;</span></a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="showcase-img reveal">
+        <img src="/assets/render-after.webp" alt="A photorealistic architectural interior render generated from a sketch by ArchLab" loading="lazy">
+      </div>
+      <p class="showcase-caption reveal">From a rough sketch to a presentation-ready render — in one step.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="how">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Three Steps to a Photorealistic Render</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid" style="margin-top:48px;">
+        <div class="step-card reveal">
+          <div class="step-thumb"><img src="/assets/sketch-before.webp" alt="A hand-drawn architectural sketch" loading="lazy"></div>
+          <span class="step-number">Step 1 &mdash; Upload</span>
+          <h3>Upload Your Sketch</h3>
+          <p>A hand-drawn sketch, concept image, or a screenshot from SketchUp, Revit or Rhino.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-thumb"><img src="/assets/ai-interface-render.webp" alt="The ArchLab rendering interface" loading="lazy"></div>
+          <span class="step-number">Step 2 &mdash; Style</span>
+          <h3>Choose a Style &amp; Render</h3>
+          <p>Set materials, lighting and mood. ArchLab renders a photorealistic result in seconds.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-thumb"><img src="/assets/render-after.webp" alt="A finished photorealistic render" loading="lazy"></div>
+          <span class="step-number">Step 3 &mdash; Export</span>
+          <h3>Refine &amp; Download</h3>
+          <p>Iterate by prompt, generate variations, and download high-resolution renders.</p>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:40px;">
+        <a href={SIGNUP} class="btn btn-primary">Try it on your sketch <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Why ArchLab</span>
+        <h2 class="section-title">Renders You Can Actually Design From</h2>
+        <p class="section-sub">The difference between an AI picture and an architectural render is whether you can trust what it shows.</p>
+      </div>
+      <div class="compare-grid reveal">
+        <div class="compare-col compare-bad">
+          <h3>Generic AI image tools</h3>
+          <ul>
+            <li>Invent dimensions and proportions</li>
+            <li>Drift away from your actual design</li>
+            <li>Beautiful, but not buildable</li>
+            <li>A dead end — no path to CAD or BIM</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-good">
+          <h3>ArchLab</h3>
+          <ul>
+            <li>Holds your real proportions and layout</li>
+            <li>Faithful to your sketch and intent</li>
+            <li>Presentation-ready for clients</li>
+            <li>The first step toward CAD, 3D and BIM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Use Cases</span>
+        <h2 class="section-title">One Tool, Many Moments</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="uc-grid" style="margin-top:48px;">
+        <a href="/use-cases/pitch-visuals" class="uc-card reveal">
+          <div class="uc-thumb"><img src="/assets/render-after.webp" alt="Concept render for a pitch" loading="lazy"></div>
+          <h3>Pitch &amp; Concept Visuals</h3>
+          <p>Win the pitch with photorealistic concepts in seconds.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+        <a href="/use-cases/redecoration" class="uc-card reveal">
+          <div class="uc-thumb"><img src="/assets/generated-interior-placeholder.webp" alt="A redecorated room render" loading="lazy"></div>
+          <h3>Room Redecoration</h3>
+          <p>Show clients the redesign before anything moves.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+        <a href="/use-cases/renovation" class="uc-card reveal">
+          <div class="uc-thumb"><img src="/assets/generated-exterior-placeholder.webp" alt="A renovated house render" loading="lazy"></div>
+          <h3>Renovation Visuals</h3>
+          <p>Turn a rough plan into a clear before-and-after.</p>
+          <span class="card-link">Learn more &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Sketch-to-Render Questions</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="accordion reveal" style="margin-top:40px;">
+        {faqs.map((f) => (
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>{f.q}</span>
+              <span class="accordion-icon"></span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner"><p>{f.a}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="final-cta reveal">
+        <h2 class="section-title">Render Your First Sketch Today</h2>
+        <p class="section-sub">Sign up and turn a sketch into a photorealistic render in seconds — then explore what's coming next on the roadmap.</p>
+        <div class="hero-buttons">
+          <a href={SIGNUP} class="btn btn-primary">Start rendering <span aria-hidden="true">&rarr;</span></a>
+          <a href="/roadmap" class="btn btn-ghost">See the roadmap</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

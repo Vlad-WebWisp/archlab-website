@@ -14,7 +14,7 @@ const PRICING = `${APP}/pricing`;
       <img src="/assets/archlab-logo.png" alt="ArchLab AI" width="640" height="292">
     </a>
     <div class="nav-links">
-      <a href="/how-it-works" class:list={[{ active: currentPath === '/how-it-works/' }]}>How It Works</a>
+      <a href="/sketch-to-render" class:list={[{ active: currentPath === '/sketch-to-render/' }]}>Sketch to Render</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="nav-dropdown-toggle" id="dropdownToggle">
           Use Cases
@@ -28,8 +28,8 @@ const PRICING = `${APP}/pricing`;
         </div>
       </div>
       <a href={PRICING}>Pricing</a>
+      <a href="/roadmap" class:list={[{ active: currentPath === '/roadmap/' }]}>Roadmap</a>
       <a href="/for-firms" class:list={[{ active: currentPath === '/for-firms/' }]}>For Firms</a>
-      <a href="/about" class:list={[{ active: currentPath === '/about/' }]}>About</a>
     </div>
     <div class="nav-cta" style="display:flex;align-items:center;">
       <a href="/waitlist" class="nav-waitlist-link">Join waitlist</a>
@@ -44,6 +44,7 @@ const PRICING = `${APP}/pricing`;
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="/sketch-to-render">Sketch to Render</a>
   <a href="/how-it-works">How It Works</a>
   <button class="mobile-menu-dropdown-toggle" id="mobileDropdownToggle">Use Cases</button>
   <div class="mobile-dropdown-items" id="mobileDropdownItems">
@@ -53,6 +54,7 @@ const PRICING = `${APP}/pricing`;
     <a href="/use-cases/pitch-visuals">Pitch Visuals</a>
   </div>
   <a href={PRICING}>Pricing</a>
+  <a href="/roadmap">Roadmap</a>
   <a href="/for-firms">For Firms</a>
   <a href="/about">About</a>
   <a href="/waitlist">Join the waitlist</a>
