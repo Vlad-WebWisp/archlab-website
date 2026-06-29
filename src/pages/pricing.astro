@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const APP = 'https://client.archlab.pro';
+const SIGNUP = `${APP}/signup`;
+const APP_PRICING = `${APP}/pricing`;
+---
+
+<BaseLayout
+  title="Pricing — AI Architectural Rendering Software | ArchLab"
+  description="ArchLab pricing for AI sketch-to-render. Start rendering today and see current plans in-app. Waitlist members get founding-member pricing on upcoming features; firms can request an evaluation."
+  keywords="architectural rendering software pricing, ai rendering pricing, archlab pricing, sketch to render cost"
+  ogImage="/assets/render-after.webp"
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Pricing</span>
+      <h1>Simple Pricing for <span class="text-gradient">AI Architectural Rendering</span></h1>
+      <p>Start with the live sketch-to-render product, and get early, founding-member pricing on everything that's coming next. Current plans and exact prices are shown in-app at checkout.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="uc-grid" style="margin-top:8px;">
+        <div class="uc-card reveal">
+          <span class="roadmap-tag">Live now</span>
+          <h3>Sketch to Render</h3>
+          <p>Turn sketches and concept images into photorealistic renders in seconds. See current plans in-app and start rendering today.</p>
+          <a href={SIGNUP} class="btn btn-primary" style="margin-top:16px;width:100%;justify-content:center;">Start rendering <span aria-hidden="true">&rarr;</span></a>
+          <a href={APP_PRICING} class="card-link" style="margin-top:12px;display:inline-block;">View current plans &rarr;</a>
+        </div>
+        <div class="uc-card reveal">
+          <span class="roadmap-tag">Coming soon</span>
+          <h3>Founding-Member Pricing</h3>
+          <p>Join the waitlist for photo-to-dimension extraction, CAD and BIM. Members lock in founding-member pricing as each feature ships.</p>
+          <a href="/waitlist" class="btn btn-ghost" style="margin-top:16px;width:100%;justify-content:center;">Join the waitlist <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="uc-card reveal">
+          <span class="roadmap-tag">For firms</span>
+          <h3>Teams &amp; Evaluations</h3>
+          <p>Piloting ArchLab across a team? We offer an evaluation on one of your real projects and tailored options for firms.</p>
+          <a href="/for-firms" class="btn btn-ghost" style="margin-top:16px;width:100%;justify-content:center;">Talk to us <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <p class="showcase-caption reveal" style="margin-top:32px;">Exact prices and plan details are shown at checkout in the ArchLab app.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="final-cta reveal">
+        <h2 class="section-title">Render Your First Sketch Today</h2>
+        <p class="section-sub">Sign up to see live plans and turn a sketch into a photorealistic render in seconds.</p>
+        <div class="hero-buttons">
+          <a href={SIGNUP} class="btn btn-primary">Get started <span aria-hidden="true">&rarr;</span></a>
+          <a href="/sketch-to-render" class="btn btn-ghost">See how it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

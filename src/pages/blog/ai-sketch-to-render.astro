@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const SIGNUP = 'https://client.archlab.pro/signup';
+const title = 'How to Turn a Hand Sketch into a Render with AI';
+const description = 'A practical, step-by-step guide to going from a rough architectural sketch to a photorealistic render in seconds with AI — and why accuracy matters.';
+const datePublished = '2026-06-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished,
+  image: 'https://archlab.pro/assets/render-after.webp',
+  author: { '@type': 'Organization', name: 'ArchLab AI' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'ArchLab AI',
+    logo: { '@type': 'ImageObject', url: 'https://archlab.pro/assets/archlab-logo.png' },
+  },
+  mainEntityOfPage: 'https://archlab.pro/blog/ai-sketch-to-render',
+};
+---
+
+<BaseLayout
+  title={`${title} | ArchLab`}
+  description={description}
+  keywords="how to turn a sketch into a render, ai sketch to render, sketch to render tutorial, architectural rendering ai"
+  ogImage="/assets/render-after.webp"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Guide</span>
+      <h1>{title}</h1>
+      <p>From a rough sketch to a presentation-ready render — the fast way, without losing what makes it accurate.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container post-body">
+      <img src="/assets/render-after.webp" alt="A photorealistic architectural render generated from a hand sketch" class="post-hero-img" loading="lazy">
+
+      <p>For decades, turning a concept sketch into a photorealistic image meant hours in a 3D modelling and rendering pipeline. AI has collapsed that into seconds. But there's a catch most tools ignore: a render is only useful to an architect if it stays true to the design. Here's how to go from sketch to render with AI — and how to make sure the result is something you can actually present and build from.</p>
+
+      <h2>Step 1 — Start with a clear sketch</h2>
+      <p>You don't need a polished drawing. A hand-drawn floor plan, a perspective sketch, a napkin concept, or a screenshot from SketchUp, Revit or Rhino all work. The clearer your lines and the more legible your spatial intent (walls, openings, key furniture), the more faithful the render will be.</p>
+
+      <h2>Step 2 — Upload it to an AI rendering tool</h2>
+      <p>Upload your image to an AI sketch-to-render tool. Most accept common formats — JPEG, PNG, WebP, HEIC (iPhone photos) and PDF. A good tool will analyse the input first, identifying the elements it can see and flagging anything ambiguous before it renders.</p>
+
+      <h2>Step 3 — Set style, materials and lighting</h2>
+      <p>This is where you direct the result: choose a material palette (light oak, polished concrete, white render), a mood, and a lighting setup (warm interior, bright daylight, golden hour). Describing the space in a sentence or two helps the model match your intent rather than inventing its own.</p>
+
+      <h2>Step 4 — Generate, then refine</h2>
+      <p>Generate the render — it should take seconds. Then iterate: adjust the prompt, swap materials, change the time of day, or generate variations to compare. When you're happy, export a high-resolution image for your presentation or pitch.</p>
+
+      <h2>Step 5 — Why accuracy matters</h2>
+      <p>This is the difference between a generic AI image and an architectural render. Generic image generators predict what a space "should" look like and routinely invent dimensions, proportions and details — beautiful pictures you can't design or build from. An accuracy-first tool like <a href="/sketch-to-render">ArchLab</a> is built to respect your real proportions and layout, and to flag uncertainty instead of guessing. That's what makes a render safe to put in front of a client.</p>
+
+      <p>It's also the foundation for everything downstream. Once your design is captured accurately, the same intent can flow into technical dimensions, CAD, 3D and BIM — the rest of the pipeline ArchLab is building.</p>
+
+      <div class="final-cta" style="margin-top:48px;">
+        <h2 class="section-title">Try It on Your Own Sketch</h2>
+        <p class="section-sub">Upload a sketch and get a photorealistic render in seconds.</p>
+        <div class="hero-buttons">
+          <a href={SIGNUP} class="btn btn-primary">Start rendering <span aria-hidden="true">&rarr;</span></a>
+          <a href="/sketch-to-render" class="btn btn-ghost">How it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .post-body { max-width: 760px; }
+    .post-hero-img {
+      width: 100%; border-radius: 12px; margin-bottom: 32px;
+      border: 1px solid var(--pencil-light);
+    }
+    .post-body h2 {
+      font-size: 1.4rem; margin: 32px 0 12px;
+      color: var(--text-heading-dark);
+    }
+    .post-body p { color: var(--text-body-dark); line-height: 1.7; margin-bottom: 16px; }
+    .post-body a { color: var(--accent); font-weight: 600; }
+  </style>
+</BaseLayout>
