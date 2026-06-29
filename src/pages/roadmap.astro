@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const SIGNUP = 'https://client.archlab.pro/signup';
+---
+
+<BaseLayout
+  title="Roadmap & Vision — ArchLab AI for Architects"
+  description="ArchLab's vision: one accuracy-first AI pipeline from hand sketch to render, technical dimensions, CAD, 3D, Revit and BIM. See what's live, what's next, and how early users shape it."
+  keywords="archlab roadmap, ai for architects, sketch to bim, ai architecture pipeline, ai cad, revit ai"
+  ogImage="/assets/cad-transformation.webp"
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Vision &amp; Roadmap</span>
+      <h1>One Precise Pipeline, From <span class="text-gradient">Sketch to Building</span></h1>
+      <p>ArchLab's goal is to take a hand-drawn sketch all the way to renders, technical blueprints, 3D, Revit and BIM files — every output an architect needs to move a project toward construction, with accuracy at the core.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal" style="max-width:760px;margin:0 auto;">
+        <span class="section-label">The Vision</span>
+        <h2 class="section-title">Accuracy, End to End</h2>
+        <p class="section-sub">Today's AI tools make pretty pictures. Architects need outputs they can build from. ArchLab is building a single, accuracy-first system that begins where every project begins — a sketch — and carries real, measured intent through every downstream file: renders, dimensions, CAD, 3D, Revit and BIM. We are building it iteratively, shipping real capabilities and learning from the architects who use them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">The Pipeline</span>
+        <h2 class="section-title">What's Live and What's Next</h2>
+        <div class="divider"></div>
+      </div>
+      <ol class="roadmap reveal">
+        <li class="roadmap-item is-live">
+          <span class="roadmap-tag">Live now</span>
+          <h3>Sketch to Render</h3>
+          <p>Photorealistic renders from sketches and concept images, in seconds — accuracy-first so your proportions stay true.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Next</span>
+          <h3>Photo to Dimensions</h3>
+          <p>Extract real, technical dimensions from site photos. Measured from geometry, not guessed — with uncertainty flagged rather than invented.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Then</span>
+          <h3>Editable CAD &amp; Blueprints</h3>
+          <p>Clean, layer-separated DXF/DWG output ready for AutoCAD, ArchiCAD and your existing drawing standards.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Then</span>
+          <h3>3D, Revit &amp; BIM</h3>
+          <p>Structured 3D and BIM/IFC outputs that drop into your existing workflow and carry data, not just geometry.</p>
+        </li>
+        <li class="roadmap-item">
+          <span class="roadmap-tag">Later</span>
+          <h3>Interior Design &amp; Decoration</h3>
+          <p>Extending the same precise pipeline into interiors and decoration as the platform grows.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal" style="max-width:760px;margin:0 auto;">
+        <span class="section-label">How We Build</span>
+        <h2 class="section-title">The Earlier You Join, the More You Shape It</h2>
+        <p class="section-sub">ArchLab is developed in close partnership with practising architects. We listen carefully to user feedback and let it steer what we build next. Joining early isn't just early access — it's a seat at the table while the pipeline is still taking shape. Waitlist members get development updates, early access to new features, and founding-member pricing as they ship.</p>
+      </div>
+      <div class="text-center" style="margin-top:32px;">
+        <div class="hero-buttons" style="justify-content:center;">
+          <a href="/waitlist" class="btn btn-primary">Join the waitlist <span aria-hidden="true">&rarr;</span></a>
+          <a href={SIGNUP} class="btn btn-ghost">Try sketch to render now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

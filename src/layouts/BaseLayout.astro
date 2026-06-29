@@ -11,9 +11,31 @@ interface Props {
   title: string;
   description: string;
   keywords?: string;
+  ogImage?: string;
 }
 
-const { title, description, keywords = 'architecture AI, sketch to CAD, floor plan AI, dimension extraction' } = Astro.props;
+const { title, description, keywords = 'ai for architects, sketch to render, architectural rendering, ai architecture, architecture ai', ogImage: ogImageProp } = Astro.props;
+
+const SITE = Astro.site ?? new URL('https://archlab.pro');
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const ogImage = new URL(ogImageProp ?? '/assets/archlab-logo.png', SITE).href;
+
+// Sitewide Organization structured data (every page).
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'ArchLab AI',
+  legalName: 'ArchLab AI S.R.L.',
+  url: SITE.href,
+  logo: ogImage,
+  description:
+    'Accuracy-first AI for architects — turn hand sketches into photorealistic renders, with photo-to-dimension extraction, CAD and BIM export on the roadmap.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Arad',
+    addressCountry: 'RO',
+  },
+};
 ---
 
 <!DOCTYPE html>
@@ -25,11 +47,21 @@ const { title, description, keywords = 'architecture AI, sketch to CAD, floor pl
   <meta name="description" content={description}>
   <meta name="keywords" content={keywords}>
   <meta name="author" content="ArchLab AI S.R.L.">
+  <link rel="canonical" href={canonical}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/archlab-logo.png">
+  <meta property="og:url" content={canonical}>
+  <meta property="og:site_name" content="ArchLab AI">
+  <meta property="og:image" content={ogImage}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+  <meta name="geo.placename" content="Arad, Romania">
   <link rel="icon" type="image/png" href="/assets/archlab-logo.png">
+  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  <slot name="head" />
 </head>
 <body>
   <Nav />
@@ -120,8 +152,19 @@ const { title, description, keywords = 'architecture AI, sketch to CAD, floor pl
             });
             const data = await res.json().catch(() => ({}));
             if (res.ok && data.ok) {
-              showResult(data.alreadyOnList ? "You're already on the list!" : "You're on the list!", '#10B981');
-              restore(true);
+              // Replace the form with a confirmation card.
+              const card = document.createElement('div');
+              card.className = 'form-success';
+              card.setAttribute('role', 'status');
+              const tick = document.createElement('div');
+              tick.className = 'form-success-tick';
+              tick.textContent = '✓';
+              const heading = document.createElement('h3');
+              heading.textContent = data.alreadyOnList ? "You're already on the list" : "You're on the list — thank you!";
+              const msg = document.createElement('p');
+              msg.textContent = 'We’ll email ' + (payload.email || 'you') + ' with development news and early access as new features ship.';
+              card.append(tick, heading, msg);
+              target.replaceWith(card);
             } else {
               showResult(data.error || 'Something went wrong.', '#F87171');
               restore(false);

@@ -1,0 +1,29 @@
+# ArchLab
+
+> ArchLab is an accuracy-first AI platform for architects. Its live product turns hand-drawn sketches and concept images into photorealistic architectural renders in seconds. Unlike generic AI image tools, ArchLab is built to respect real proportions, so renders are suitable for client presentations and design development — not just inspiration.
+
+ArchLab is built by ArchLab AI S.R.L., based in Arad, Romania. The product is available at https://client.archlab.pro.
+
+## What ArchLab does today (live)
+- AI sketch to render: upload a sketch, concept image, or model screenshot (SketchUp, Revit, Rhino) and generate a photorealistic architectural render in seconds.
+- Accuracy-first: when something is ambiguous, ArchLab flags it and asks rather than inventing a detail or measurement.
+
+## Roadmap (in development)
+- Photo to dimensions: extract real, technical dimensions from site photos.
+- Editable CAD and blueprints: layer-separated DXF/DWG.
+- 3D, Revit and BIM/IFC outputs.
+- Interior design and decoration (later).
+
+## Key pages
+- Home: https://archlab.pro/
+- Sketch to render (product): https://archlab.pro/sketch-to-render
+- Roadmap and vision: https://archlab.pro/roadmap
+- For firms: https://archlab.pro/for-firms
+- Case studies: https://archlab.pro/case-studies
+- FAQ: https://archlab.pro/faq
+- Pricing: https://archlab.pro/pricing
+- Sign up / app: https://client.archlab.pro/signup
+- Waitlist (upcoming features): https://archlab.pro/waitlist
+
+## Who it is for
+Architects, interior designers, architecture firms, students, real estate developers, and contractors who need fast, presentation-ready visuals that stay true to their design intent.

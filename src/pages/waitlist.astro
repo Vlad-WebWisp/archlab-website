@@ -1,17 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const SIGNUP = 'https://client.archlab.pro/signup';
 ---
 
 <BaseLayout
-  title="Join the Waitlist — ArchLab AI"
-  description="Get early access to dimension-accurate architecture AI. Join the waitlist for ArchLab."
-  keywords="ArchLab waitlist, architecture AI early access"
+  title="Join the Waitlist — Early Access to What's Next | ArchLab"
+  description="Sketch-to-render is live. Join the ArchLab waitlist for early access to photo-to-dimension extraction, CAD and BIM — and help shape the roadmap. Founding-member pricing for members."
+  keywords="ArchLab waitlist, architecture AI early access, ai for architects"
 >
 <section class="page-hero">
     <div class="container">
       <span class="section-label">Early Access</span>
-      <h1>Be First in Line for <span class="text-gradient">Precision Architecture AI</span></h1>
-      <p>Join the waitlist to get early access when we launch. Waitlist members receive priority onboarding and founding-member pricing.</p>
+      <h1>Get Early Access to <span class="text-gradient">What's Next</span></h1>
+      <p>Sketch-to-render is live today. Join the waitlist for early access to what's coming — photo-to-dimension extraction, CAD, 3D and BIM — and help steer what we build. The earlier you join, the more influence you have.</p>
+      <p style="margin-top:12px;font-size:0.95rem;">Want to render now? <a href={SIGNUP} style="color:var(--accent);font-weight:600;">Start with sketch to render &rarr;</a></p>
     </div>
   </section>
 
@@ -49,15 +52,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="sidebar waitlist-sidebar">
             <h3>What You Get as a Waitlist Member</h3>
             <ul class="benefit-list">
-              <li>Priority access when we launch</li>
-              <li>Founding-member pricing locked in for life</li>
-              <li>Direct input on feature roadmap</li>
-              <li>Invitation to private beta testing</li>
-              <li>Monthly progress updates from the team</li>
+              <li>Early access to new features as they ship</li>
+              <li>A say in the roadmap and feature priorities</li>
+              <li>Founding-member pricing locked in</li>
+              <li>Invitations to private beta testing</li>
+              <li>Development updates from the team</li>
             </ul>
             <div class="social-proof-counter">
-              <span class="count">127</span>
-              <p>architects and designers already on the waitlist</p>
+              <p>Join the architects and designers already helping shape ArchLab's roadmap.</p>
             </div>
           </div>
         </div>

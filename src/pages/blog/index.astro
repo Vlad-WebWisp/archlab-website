@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Add new posts here (newest first). Each links to a page under /blog/<slug>.
+const posts = [
+  {
+    slug: 'ai-sketch-to-render',
+    title: 'How to Turn a Hand Sketch into a Render with AI',
+    excerpt: 'A practical, step-by-step guide to going from a rough architectural sketch to a photorealistic render in seconds — and why accuracy matters.',
+    date: '2026-06-29',
+    thumb: '/assets/render-after.webp',
+  },
+];
+---
+
+<BaseLayout
+  title="Blog — AI Rendering & Architecture AI Guides | ArchLab"
+  description="Guides and articles on AI sketch-to-render, accuracy-first architecture AI, and getting from concept to construction faster."
+  keywords="ai rendering guide, sketch to render tutorial, architecture ai blog"
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Blog</span>
+      <h1>Guides on <span class="text-gradient">Accuracy-First</span> Architecture AI</h1>
+      <p>How to get from a sketch to a render — and beyond — without losing the dimensions that matter.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="uc-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="uc-card reveal">
+            <div class="uc-thumb"><img src={post.thumb} alt={post.title} loading="lazy"></div>
+            <span class="roadmap-tag">{post.date}</span>
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+            <span class="card-link">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
