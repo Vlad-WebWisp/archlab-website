@@ -70,6 +70,7 @@ const faqSchema = {
   title="AI Sketch to Render for Architects — ArchLab"
   description="Turn hand-drawn sketches into photorealistic architectural renders in seconds. ArchLab is the accuracy-first AI for architects — with photo-to-dimension extraction, CAD and BIM export on the roadmap."
   keywords="ai for architects, sketch to render, sketch to render ai, architectural rendering, ai architecture, ai architectural rendering"
+  ogImage="/assets/render-after.webp"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
@@ -125,24 +126,24 @@ const faqSchema = {
       </div>
       <div class="steps-grid" style="margin-top:48px;">
         <div class="step-card reveal">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div class="step-thumb">
+            <img src="/assets/sketch-before.webp" alt="A hand-drawn architectural sketch uploaded to ArchLab" loading="lazy">
           </div>
           <span class="step-number">Step 1 &mdash; Upload</span>
           <h3>Upload Your Sketch or Concept</h3>
           <p>A hand-drawn sketch, a napkin concept, or a model screenshot from SketchUp, Revit or Rhino — ArchLab takes it from here.</p>
         </div>
         <div class="step-card reveal">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <div class="step-thumb">
+            <img src="/assets/ai-interface-render.webp" alt="The ArchLab interface generating a render from a sketch" loading="lazy">
           </div>
           <span class="step-number">Step 2 &mdash; Style</span>
           <h3>Choose a Style and Render</h3>
           <p>Pick a material palette, lighting and mood. ArchLab generates a photorealistic render that respects your proportions — in seconds.</p>
         </div>
         <div class="step-card reveal">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <div class="step-thumb">
+            <img src="/assets/render-after.webp" alt="A finished photorealistic render produced by ArchLab" loading="lazy">
           </div>
           <span class="step-number">Step 3 &mdash; Iterate &amp; Export</span>
           <h3>Refine and Download</h3>
@@ -163,6 +164,10 @@ const faqSchema = {
         <h2 class="section-title">Renders That Respect Real Dimensions</h2>
         <p class="section-sub">Most AI image tools invent a pretty picture. ArchLab is built so your proportions stay true — a render you can actually design and present from.</p>
       </div>
+      <figure class="accuracy-proof reveal">
+        <img src="/assets/ai-interface-analysis.webp" alt="ArchLab's analysis step detecting elements and flagging unclear details in a sketch before rendering" loading="lazy">
+        <figcaption>When something is ambiguous, ArchLab flags it and asks — instead of inventing a measurement or a detail.</figcaption>
+      </figure>
       <div class="compare-grid reveal">
         <div class="compare-col compare-bad">
           <h3>Generic AI image tools</h3>
@@ -196,32 +201,32 @@ const faqSchema = {
       </div>
       <div class="uc-grid" style="margin-top:48px;">
         <a href="/use-cases/pitch-visuals" class="uc-card reveal">
-          <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div class="uc-thumb">
+            <img src="/assets/render-after.webp" alt="Photorealistic concept render for a client pitch" loading="lazy">
           </div>
           <h3>Pitch &amp; Concept Visuals</h3>
           <p>Win the pitch before your competitor finishes their first sketch. Photorealistic concept renders in seconds.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
         <a href="/use-cases/redecoration" class="uc-card reveal">
-          <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <div class="uc-thumb">
+            <img src="/assets/generated-interior-placeholder.webp" alt="A redecorated living room render" loading="lazy">
           </div>
           <h3>Room Redecoration</h3>
           <p>Show clients their redesigned room before you move a single piece of furniture.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
         <a href="/use-cases/renovation" class="uc-card reveal">
-          <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div class="uc-thumb">
+            <img src="/assets/generated-exterior-placeholder.webp" alt="A renovated modern house exterior render" loading="lazy">
           </div>
           <h3>Renovation Visuals</h3>
           <p>Turn a site photo or rough plan into a clear before-and-after your client can picture instantly.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
         <a href="/use-cases/sketch-to-cad" class="uc-card reveal">
-          <div class="uc-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          <div class="uc-thumb">
+            <img src="/assets/cad-transformation.webp" alt="A sketch transformed into an editable CAD model" loading="lazy">
           </div>
           <h3>Sketch to CAD <span class="uc-soon">Coming soon</span></h3>
           <p>Your napkin sketch becomes a clean, measured, editable CAD file. On the roadmap — join the waitlist for early access.</p>
@@ -338,6 +343,39 @@ const faqSchema = {
 
   <style>
     .hero-note { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Step + use-case thumbnails */
+    .step-thumb, .uc-thumb {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      aspect-ratio: 16 / 10;
+      background: var(--bg-alt);
+      border: 1px solid var(--pencil-light);
+    }
+    .step-thumb img, .uc-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .uc-thumb { margin-bottom: 16px; }
+    .uc-thumb img { transition: transform 0.4s ease; }
+    .uc-card:hover .uc-thumb img { transform: scale(1.04); }
+
+    /* Accuracy proof screenshot */
+    .accuracy-proof { max-width: 720px; margin: 44px auto 0; }
+    .accuracy-proof img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--pencil-light);
+      box-shadow: 0 8px 32px rgba(26,58,92,0.10);
+      display: block;
+    }
+    .accuracy-proof figcaption {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 14px;
+    }
 
     /* Accuracy comparison */
     .compare-grid {

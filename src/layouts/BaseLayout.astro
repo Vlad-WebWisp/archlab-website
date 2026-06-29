@@ -11,13 +11,14 @@ interface Props {
   title: string;
   description: string;
   keywords?: string;
+  ogImage?: string;
 }
 
-const { title, description, keywords = 'ai for architects, sketch to render, architectural rendering, ai architecture, architecture ai' } = Astro.props;
+const { title, description, keywords = 'ai for architects, sketch to render, architectural rendering, ai architecture, architecture ai', ogImage: ogImageProp } = Astro.props;
 
 const SITE = Astro.site ?? new URL('https://archlab.pro');
 const canonical = new URL(Astro.url.pathname, SITE).href;
-const ogImage = new URL('/assets/archlab-logo.png', SITE).href;
+const ogImage = new URL(ogImageProp ?? '/assets/archlab-logo.png', SITE).href;
 
 // Sitewide Organization structured data (every page).
 const orgSchema = {
