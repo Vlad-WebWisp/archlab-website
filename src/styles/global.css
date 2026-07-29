@@ -162,7 +162,14 @@ button, input, select, textarea {
   justify-content: space-between;
   height: 100%;
 }
-.nav-logo img { height: 56px; width: auto; }
+.nav-logo { flex-shrink: 0; }
+.nav-logo img {
+  height: 56px;
+  width: auto;
+  max-width: none;
+  aspect-ratio: 640 / 292;
+  object-fit: contain;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -663,6 +670,8 @@ button, input, select, textarea {
 .footer-brand img {
   height: 48px;
   width: auto;
+  max-width: none;
+  aspect-ratio: 640 / 292;
   object-fit: contain;
   margin-bottom: 16px;
 }
