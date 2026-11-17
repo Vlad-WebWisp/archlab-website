@@ -4,13 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Privacy Policy — ArchLab AI"
-  description="ArchLab AI privacy policy. How we collect, use, and protect your data."
+  description="ArchLab AI privacy policy. How we collect, use, and protect your data, including when you use ArchLab through an AI assistant."
   keywords="ArchLab privacy policy"
 >
 <section class="page-hero">
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p>Last updated: April 17, 2026</p>
+      <p>Last updated: November 17, 2026</p>
     </div>
   </section>
 
@@ -48,18 +48,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
 
         <h2>4. Data Processing and Storage</h2>
-        <p>Your project files are processed in secure, isolated environments. We do not use your project files to train our AI models. Project files are retained only for the duration necessary to provide the service and are deleted according to our data retention policy unless you request otherwise.</p>
+        <p>Your project files are processed in secure, isolated environments. We do not use your project files to train our AI models.</p>
+        <p>The sketches and photos you upload, and the renders and measurements we produce from them, are kept in your ArchLab account so you can return to them. We do not delete them automatically. They are kept until you delete them in the app (where the app offers it), ask us to delete them, or close your account.</p>
         <p>Personal data is stored on secure servers within the European Economic Area (EEA). If data transfer outside the EEA is necessary, we ensure appropriate safeguards are in place as required by GDPR.</p>
 
         <h2>5. Data Sharing</h2>
         <p>We do not sell your personal data. We may share your information with:</p>
         <ul>
-          <li>Service providers who assist in operating our platform (hosting, analytics), bound by data processing agreements</li>
+          <li>Service providers who assist in operating our platform (hosting, computing, storage, analytics), bound by data processing agreements</li>
+          <li>AI model providers that process your files to produce renders and edits (currently Google and OpenAI), under their API terms</li>
           <li>Legal authorities when required by law or to protect our rights</li>
           <li>Business partners, only with your explicit consent</li>
         </ul>
 
-        <h2>6. Your Rights (GDPR)</h2>
+        <h2>6. AI Assistants and API Access</h2>
+        <h3>What we receive</h3>
+        <p>If you connect ArchLab to an AI assistant (such as ChatGPT, Claude, Claude Code or Codex) or use an ArchLab API key, we receive the requests the assistant sends to ArchLab on your behalf:</p>
+        <ul>
+          <li>Render instructions and settings</li>
+          <li>References to your sketches, renders and projects</li>
+          <li>Any image you upload through it</li>
+        </ul>
+        <p>We do not receive your conversation with the assistant, its memory or your other files.</p>
+        <h3>Why we use it</h3>
+        <p>Only to carry out the action you asked for under your ArchLab account, and to deduct the credits that action uses. The actions are:</p>
+        <ul>
+          <li>Create, vary or edit a render</li>
+          <li>List your projects and renders</li>
+          <li>Show your credit balance</li>
+        </ul>
+        <h3>Who processes it</h3>
+        <p>Our hosting and storage providers, and the AI model providers that generate the images (currently Google and OpenAI) under their API terms. We do not use your files to train AI models and we do not sell your data.</p>
+        <h3>How long we keep it</h3>
+        <ul>
+          <li><strong>Sketches, uploads and renders</strong> made through an assistant are stored in your ArchLab account like any other render. They are kept until you ask us to delete them or you close your account.</li>
+          <li><strong>A record of each operation</strong> (type, time and credits used) is kept with your account's billing history.</li>
+          <li><strong>Access tokens</strong> issued to an assistant expire after one hour and are renewed only while ArchLab stays connected.</li>
+          <li><strong>API keys</strong> remain valid until you revoke them. We store only a cryptographic hash of each key.</li>
+        </ul>
+        <h3>Your controls</h3>
+        <ul>
+          <li>Disconnect ArchLab in your assistant's settings at any time.</li>
+          <li>Revoke API keys in ArchLab under Settings → API keys.</li>
+          <li>Ask us to delete your sketches, renders or account by writing to the privacy contact in section 12.</li>
+        </ul>
+
+        <h2>7. Your Rights (GDPR)</h2>
         <p>Under GDPR, you have the right to:</p>
         <ul>
           <li>Access your personal data</li>
@@ -70,23 +104,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <li>Object to processing</li>
           <li>Withdraw consent at any time</li>
         </ul>
-        <p>To exercise these rights, contact us at <a href="mailto:privacy@archlab.ai">privacy@archlab.ai</a>.</p>
+        <p>To exercise these rights, contact us at <a href="mailto:support@archlab.pro">support@archlab.pro</a>.</p>
 
-        <h2>7. Cookies</h2>
+        <h2>8. Cookies</h2>
         <p>We use essential cookies necessary for the functioning of our website. We may also use analytics cookies to understand how visitors interact with our website. You can control cookie preferences through your browser settings.</p>
 
-        <h2>8. Data Security</h2>
+        <h2>9. Data Security</h2>
         <p>We implement industry-standard security measures including encryption in transit (TLS 1.3) and at rest (AES-256), access controls, and regular security audits. We are pursuing SOC 2 Type II certification.</p>
 
-        <h2>9. Children's Privacy</h2>
+        <h2>10. Children's Privacy</h2>
         <p>Our services are not directed to individuals under 16. We do not knowingly collect personal data from children.</p>
 
-        <h2>10. Changes to This Policy</h2>
+        <h2>11. Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on our website and updating the "Last updated" date.</p>
 
-        <h2>11. Contact Us</h2>
+        <h2>12. Contact Us</h2>
         <p>For privacy-related inquiries:</p>
-        <p>ArchLab AI S.R.L.<br>Email: <a href="mailto:privacy@archlab.ai">privacy@archlab.ai</a><br>Bucharest, Romania</p>
+        <p>ArchLab AI S.R.L.<br>Email: <a href="mailto:support@archlab.pro">support@archlab.pro</a><br>Arad, Romania</p>
       </div>
     </div>
   </section>
