@@ -9,3 +9,33 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}.site-nav{display:flex;gap:2
 @media(max-width:700px){.comparison{aspect-ratio:1}}
 
 .public-plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:30px 0 18px}.public-plan{border:1px solid #b9bfb1;padding:30px;background:#faf9f4;color:#26322f}.public-plan h3{font:30px Georgia,serif;margin:0 0 24px}.public-plan .plan-price{margin:0 0 24px}.plan-price strong{font:48px Georgia,serif;color:#26322f}.plan-price span{font-size:12px}.public-plan .primary{display:flex;justify-content:space-between;margin-top:30px;background:#26322f;color:white;padding:16px 20px;text-decoration:none;font-size:13px}.plans-note{font-size:12px!important;line-height:1.8;margin-bottom:40px;color:#70786d}@media(max-width:700px){.public-plans{grid-template-columns:1fr}}
+
+/* A full-screen drawing desk, with navigation inside the pinned scene. */
+.hero-sticky{height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.hero-sticky header{height:88px;min-height:88px;flex-shrink:0}
+.hero-sticky .hero{flex:1;min-height:0;overflow:hidden}
+.hero-sticky .scene-wrap{height:100%;min-height:0;width:auto;align-self:stretch}
+.hero-sticky .scene{min-height:0}
+.hero-sticky .intro{padding:20px 0}
+.hero-sticky .paper{top:15%;width:min(83%,calc((100svh - 260px)*1.4));left:8%}
+.hero-sticky .scene-index{bottom:5%;background:var(--paper);padding:8px;z-index:3}
+.hero-sticky .scene-note{bottom:1%;right:8%;font-size:7px}
+.hero-sticky .transport{flex-shrink:0;padding:10px 0;border-bottom:0;gap:20px}
+.hero-sticky .chapters{margin-top:5px}.hero-sticky .chapters button{font-size:10px;padding:8px 0}
+.hero-sticky .transport input{height:1px}.hero-sticky .transport-start,.hero-sticky .replay{display:none}
+.hero-sticky .ghost-two{bottom:12%}
+.primary,.filters button,.text-button,.public-plan,.top-link{transition:transform .22s ease,background-color .22s ease,box-shadow .22s ease}
+.primary:hover{transform:translateY(-3px) rotate(-.3deg);box-shadow:3px 5px 0 #26322f26}
+.primary span,.top-link span{display:inline-block;transition:transform .22s ease}.primary:hover span,.top-link:hover span{transform:translate(3px,-2px)}
+.filters button:hover,.text-button:hover{transform:translateY(-2px)}
+.section-head h2 em,.compare-copy h2 em,.closing h2 em{ text-decoration:underline;text-decoration-color:#9b594245;text-decoration-thickness:2px;text-underline-offset:9px }
+.prompt,.feature-panel{background-image:repeating-linear-gradient(97deg,transparent 0 7px,#26322f04 7px 8px)}
+.public-plan,.feature-panel,.plan-info,.credit-example{border-radius:2px 1px 3px 1px;box-shadow:2px 2px 0 #26322f0b}
+.section,.transport{border-image:linear-gradient(90deg,transparent,#26322f50 20%,#26322f25 80%,transparent) 1}
+.comparison .image-slider{position:absolute;inset:0;width:100%;height:100%;margin:0;background:transparent;opacity:0;z-index:5;cursor:ew-resize;touch-action:pan-y}
+.comparison:focus-within{outline:2px solid var(--accent);outline-offset:5px}
+.compare-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#f3f0e9;color:#26322f;border:1px solid #7a8073;box-shadow:0 2px 12px #0003;font-size:24px}
+#comparisonLine{pointer-events:none;z-index:4}.compare-control{text-align:center;color:#bdc5b8}
+@media(max-width:700px){.hero-sticky header{height:94px;min-height:94px;padding:10px 0;gap:10px}.hero-sticky .hero{display:grid;grid-template-rows:auto minmax(0,1fr);padding:0 6%}.hero-sticky .intro{padding:14px 0 0}.hero-sticky h1{font-size:clamp(30px,5svh,42px);margin-bottom:12px}.hero-sticky .eyebrow{margin-bottom:12px}.hero-sticky .description{font-size:12px;line-height:1.5;margin:0}.hero-sticky .actions{margin-top:12px}.hero-sticky .quiet{display:none}.hero-sticky .scene-wrap{width:112%;margin-left:-6%;min-height:0}.hero-sticky .paper{width:min(82%,calc((100svh - 440px)*1.4));min-width:48%;left:50%;margin-left:0;translate:-50% 0;top:10%}.hero-sticky .ghost-sheet{display:none}.hero-sticky .scene-index{bottom:3%;font-size:7px}.hero-sticky .scene-note{font-size:6px;bottom:2%}.hero-sticky .transport{padding:5px 0}.hero-sticky .chapters button{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.hero-sticky{height:auto;overflow:visible}.hero-sticky .hero{min-height:620px}.hero-sticky .scene-wrap{height:550px}.primary,.filters button,.text-button,.top-link,.primary span,.top-link span{transition:none}.primary:hover,.filters button:hover,.text-button:hover{transform:none}}
+@media(max-width:700px){.hero-sticky .hero{grid-template-columns:1fr}.hero-sticky .scene-wrap{grid-column:1}}
