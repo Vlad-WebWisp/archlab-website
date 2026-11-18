@@ -7,3 +7,5 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}.site-nav{display:flex;gap:2
 .comparison>img,.comparison #comparisonReveal img{object-fit:contain;object-position:center}
 #comparisonReveal{background:#f3f0e9}
 @media(max-width:700px){.comparison{aspect-ratio:1}}
+
+.public-plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:30px 0 18px}.public-plan{border:1px solid #b9bfb1;padding:30px;background:#faf9f4;color:#26322f}.public-plan h3{font:30px Georgia,serif;margin:0 0 24px}.public-plan .plan-price{margin:0 0 24px}.plan-price strong{font:48px Georgia,serif;color:#26322f}.plan-price span{font-size:12px}.public-plan .primary{display:flex;justify-content:space-between;margin-top:30px;background:#26322f;color:white;padding:16px 20px;text-decoration:none;font-size:13px}.plans-note{font-size:12px!important;line-height:1.8;margin-bottom:40px;color:#70786d}@media(max-width:700px){.public-plans{grid-template-columns:1fr}}
