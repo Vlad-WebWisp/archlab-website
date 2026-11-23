@@ -62,7 +62,7 @@ const orgSchema = {
   <link rel="icon" type="image/svg+xml" href="/brand-2026/assets/logo.svg">
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   <slot name="head" />
-</head>
+<link rel="stylesheet" href="/brand-2026/identity.css?v=3"/><script is:inline defer src="/brand-2026/motion.js"></script></head>
 <body>
   <Nav />
   <main class="page-content page-transition">
@@ -176,10 +176,19 @@ const orgSchema = {
           return;
         }
 
+        // Prepare a contact draft; the visitor reviews and sends in their email app.
+        if (target.dataset.formType === 'contact') {
+          const read = (id: string) => (target.querySelector(id) as HTMLInputElement)?.value.trim() ?? '';
+          const subject = 'ArchLab — ' + read('#ct-type');
+          const body = read('#ct-message') + '\n\n' + read('#ct-name') + '\nReply to: ' + read('#ct-email');
+          window.location.href = 'mailto:support@archlab.pro?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          return;
+        }
+
         // Other forms remain client-side placeholders (backend TBD).
-        showResult('Submitted successfully!', '#10B981');
+        showResult('Please email support@archlab.pro to send your enquiry.', '#D3F18B');
         btn.disabled = true;
-        restore(true);
+        restore(false);
       });
     });
 

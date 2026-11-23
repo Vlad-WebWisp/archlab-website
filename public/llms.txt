@@ -27,3 +27,9 @@ ArchLab is built by ArchLab AI S.R.L., based in Arad, Romania. The product is av
 
 ## Who it is for
 Architects, interior designers, architecture firms, students, real estate developers, and contractors who need fast, presentation-ready visuals that stay true to their design intent.
+
+## Office Automation pilot
+- Service: https://archlab.pro/office-automation
+- Proposed office-specific workflow configuration for Romanian architecture offices of 1–19 people, starting in Oradea and Arad. Compatibility and pilot scope are assessed before booking.
+- Audit €150; standard setup €1,000; optional care €49/office/month, excluding VAT. Per-user ArchLab subscriptions and third-party licences are separate. Proposed euro subscription billing is not yet confirmed.
+- This is IT configuration and training, not architectural design, certification or signing.

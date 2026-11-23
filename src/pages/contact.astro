@@ -19,7 +19,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="contact-grid reveal">
         <div class="form-card">
-          <h3 style="color:var(--text-heading-dark);margin-bottom:24px;font-size:1.25rem;">Send Us a Message</h3>
+          <h3 style="color:var(--text-heading-dark);margin-bottom:12px;font-size:1.25rem;">Start a conversation</h3>
+          <p style="margin-bottom:24px;">Prepare a message below, then review and send it in your email app. You can also email <a href="mailto:support@archlab.pro">support@archlab.pro</a> directly.</p>
           <form data-form-type="contact">
             <div class="form-group">
               <label for="ct-name">Your Name</label>
@@ -35,6 +36,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <option value="">Select inquiry type</option>
                 <option>Product Demo Request</option>
                 <option>Firm Partnership</option>
+                <option>Office Automation Audit</option>
                 <option>Investment Inquiry</option>
                 <option>Media / Press</option>
                 <option>Technical Question</option>
@@ -45,7 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <label for="ct-message">Message</label>
               <textarea id="ct-message" class="form-textarea" placeholder="Tell us about your inquiry..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message <span aria-hidden="true">&rarr;</span></button>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Open email draft <span aria-hidden="true">&rarr;</span></button>
           </form>
         </div>
         <div>
